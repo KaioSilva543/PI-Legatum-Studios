@@ -57,19 +57,21 @@ public class Player : MonoBehaviour
 
     void CorrePlayer()
     {
-        if (playerHud.vigorPlayer > 0)
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            if (Input.GetKeyDown(KeyCode.LeftShift))
+            if (playerHud.vigorPlayer > 0)
             {
                 Velocidade = Correr;
                 Correu = true;
             }
-            if (Input.GetKeyUp(KeyCode.LeftShift))
-            {
-                Velocidade = VeloInicial;
-                Correu = false;
-            }
+            
         }
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            Velocidade = VeloInicial;
+            Correu = false;
+        }
+        
         
     }
 }
