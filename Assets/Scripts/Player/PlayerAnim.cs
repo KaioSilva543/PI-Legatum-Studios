@@ -8,6 +8,8 @@ public class PlayerAnim : MonoBehaviour
 
     private Animator animPlayer;
 
+    public bool teste;
+
     private void Awake()
     {
         animPlayer = GetComponent<Animator>();
