@@ -5,14 +5,14 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     private Rigidbody2D rbPlayer;
-    private Vector2 Direcao;
+    public Vector2 Direcao;
     private PlayerHud playerHud;
 
     [Header("Variaveis")]
     [SerializeField] private float Velocidade, Correr;
 
     private float VeloInicial;
-    public bool Correu;
+    public bool Correu, Atacou, Parou, teste;
     void Awake()
     {
         rbPlayer = GetComponent<Rigidbody2D>();
@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        teste = false;
         VeloInicial = Velocidade;
     }
     
@@ -28,6 +29,7 @@ public class Player : MonoBehaviour
     {
         OnInput();
         CorrePlayer();
+        Ataque();
     }
 
     void FixedUpdate()
@@ -54,24 +56,55 @@ public class Player : MonoBehaviour
             transform.eulerAngles = new Vector2(0, 180);
         }
     }
-
+    //PLAYER CORRENDO
     void CorrePlayer()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if(playerHud.vigorPlayer > 0)
         {
-            if (playerHud.vigorPlayer > 0)
+            if (Input.GetKeyDown(KeyCode.LeftShift))
             {
                 Velocidade = Correr;
                 Correu = true;
+                Parou = false;
+                teste = true;
             }
-            
+        }else if (playerHud.vigorPlayer <= 0)
+        {
+            Velocidade = VeloInicial;
         }
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
             Velocidade = VeloInicial;
             Correu = false;
+            Parou = true;
         }
-        
-        
+    }
+    //ATAQUE DO PLAYER
+    void Ataque()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Atacou = true;
+        }
+        else if (Input.GetMouseButtonUp(0))
+        {
+            Atacou = false;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        //PLAYER PERDENDO VIDA
+        if (collision.CompareTag("Inimigo"))
+        {
+            playerHud.vidaPlayer -= 2;
+            print("perdeu vida");
+        }
+    }
+    //
+    public Vector2 _Direcao
+    {
+        get { return Direcao; }
+        set { Direcao = value; }
     }
 }
