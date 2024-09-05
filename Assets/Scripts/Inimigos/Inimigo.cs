@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -32,7 +33,7 @@ public class Inimigo : MonoBehaviour
         velocidadeOg = velocidade;
     }
 
-    public void Update()
+    public void FixedUpdate()
     {
         ProcurarJogador();
         if (alvo != null)
@@ -52,7 +53,7 @@ public class Inimigo : MonoBehaviour
         Stun();
         vida -= dano;
         barraVida.mudarvida(vida);
-        Debug.Log($"Inimigo tomou {dano} de dano");
+        Console.WriteLine($"Inimigo tomou {dano} de dano");
 
         if (vida <= 0)
         {
@@ -68,7 +69,7 @@ public class Inimigo : MonoBehaviour
         GetComponent<CapsuleCollider2D>().enabled = false;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)   //tomar dano
     {;
         if (collision.CompareTag("Spell"))
         {

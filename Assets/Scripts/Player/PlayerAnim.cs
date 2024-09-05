@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerAnim : MonoBehaviour
 {
-    private Player player;
+    private playerCavaleiro player;
 
     private Animator animPlayer;
 
@@ -12,8 +12,8 @@ public class PlayerAnim : MonoBehaviour
 
     private void Awake()
     {
-        animPlayer = GetComponent<Animator>();
-        player = GetComponent<Player>();
+        animPlayer = GetComponentInChildren<Animator>();
+        player = GetComponentInParent<playerCavaleiro>();
     }
 
     void Start()
@@ -30,7 +30,7 @@ public class PlayerAnim : MonoBehaviour
 
     void MoveAnim()
     {
-        if (player._Direcao.sqrMagnitude > 0)
+        if (player.input.sqrMagnitude > 0)
         {
             animPlayer.SetInteger("Transicao", 1);
         }
@@ -41,7 +41,7 @@ public class PlayerAnim : MonoBehaviour
     }
     void MoveAtaque()
     {
-        if (player.Atacou)
+        if (player.atacou)
         {
             animPlayer.SetBool("Ataque", true);
 
