@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class Fireball : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public int dano;
+
     void Start()
     {
         GetComponent<Rigidbody2D>().AddForce(transform.right * 500);
-        Destroy(gameObject, 5);
+        Destroy(gameObject, 3);
     }
+
 }
+    

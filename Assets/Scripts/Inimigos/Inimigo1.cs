@@ -10,6 +10,9 @@ public class Inimigo1 : MonoBehaviour
     [SerializeField] Rigidbody2D rig;
     [SerializeField] Animator anim;
 
+    public PlayerM player;
+    public int dano;
+
     Vector2 posAtual, posAlvo, posDir;
     private void Update()
     {
@@ -60,4 +63,11 @@ public class Inimigo1 : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            player.DanoTomado(dano);
+        }
+    }
 }
