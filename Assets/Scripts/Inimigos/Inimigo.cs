@@ -1,61 +1,73 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Inimigo : MonoBehaviour
 {
-    public int vida, vidaMax;
-    public float velocidade, velocidadeOg;
-    public bool andando;
+    public Transform alvo;
 
-    private Transform alvo;
-    public InimigoAnim animacao;
-    public BarraVida barraVida;
+    [Header("Stats")]
+    public float velocidade;
+    private float velocidadeOg;
+    public int vidaAtual, vidaMax;
 
-    Rigidbody2D rig;
-    public Vector2 posicaoAtual, posicaoAlvo, direcao;
+    private Rigidbody2D rig;
+    private InimigoAnim anim;
 
+    [Header("Attack Settings")]
+    public float tempoEntreAtaques = 1.5f;
+    private bool podeAtacar = true;
+
+    #region AttRange
     [Header("OverlapCircle")]
-    public float tamanhoDiametro;
-    public bool detectouPlayer;
-    public LayerMask layerArea;
+    public bool inRange;
+    public LayerMask maskPlayer;
+    public float raio;
+    public float raioAtaque;
 
-    [Header("Gizmo")]
-    public Color gizmoIdleColor = Color.green;
-    public Color gizmoDetect = Color.red;
-    public void Start()
+    [Header("GIZMOS")]
+    public Color defaultColor = Color.green;
+    public Color rangeColor = Color.red;
+    public Color attackRangeColor = Color.yellow;
+    #endregion
+
+    void Start()
     {
-
+        anim = GetComponent<InimigoAnim>();
         rig = GetComponent<Rigidbody2D>();
-        vida = vidaMax;
-        barraVida.vidaMaxima(vidaMax);
-        velocidadeOg = velocidade;
+        vidaAtual = vidaMax;
     }
 
-    public void FixedUpdate()
+    void Update()
     {
         ProcurarJogador();
+        anim.Movimento();
+
         if (alvo != null)
         {
             Movimento();
-        }
-        else
-        {
-            PararMovimento();
+
+            
+            if (inRange && podeAtacar)
+            {
+                Collider2D playerNoAtaque = Physics2D.OverlapCircle(transform.position, raioAtaque, maskPlayer);
+                if (playerNoAtaque != null)
+                {
+                    
+                    Atacar();
+                }
+            }
         }
     }
 
     #region VidaInimigo
     public void TomarDano(int dano)
     {
-        animacao.Hit();
+        anim.Hit();
+        Debug.Log($"Inimigo tomou {dano} de dano");
+        vidaAtual -= dano;
         Stun();
-        vida -= dano;
-        barraVida.mudarvida(vida);
-        Console.WriteLine($"Inimigo tomou {dano} de dano");
-
-        if (vida <= 0)
+        if (vidaAtual <= 0)
         {
             Morte();
         }
@@ -63,91 +75,84 @@ public class Inimigo : MonoBehaviour
 
     public void Morte()
     {
-        Debug.Log("Inimigo morreu");
-        animacao.Morte();
+        anim.Morte();
         enabled = false;
         GetComponent<CapsuleCollider2D>().enabled = false;
+        Debug.Log("Morreu");
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)   //tomar dano
-    {;
-        if (collision.CompareTag("Spell"))
-        {
-            Debug.Log("O inimigo foi atingido por um projétil!");
-            Fireball magia = collision.GetComponent<Fireball>();
-            if (magia != null)
-            {
-                TomarDano(2);
-                Destroy(collision.gameObject);
-            }
-        }
-    }
-    #endregion
-
-    #region InimigoPerseguir
-    private void OnDrawGizmos()
+    private void Stun()
     {
-        Gizmos.color = gizmoIdleColor;
-        Gizmos.DrawWireSphere(posicaoAtual, tamanhoDiametro);
-        if (detectouPlayer)
-        {
-            Gizmos.color = gizmoDetect;
-            Gizmos.DrawWireSphere(posicaoAtual, tamanhoDiametro);
-        }
-    }
-    void ProcurarJogador()
-    {
-        Collider2D colisor = Physics2D.OverlapCircle(posicaoAtual, tamanhoDiametro, layerArea); 
-        if (colisor != null)
-        {
-            detectouPlayer = true;
-            alvo = colisor.transform;
-        }
-        else if (colisor == null)
-        {
-            detectouPlayer = false;
-            alvo = null;
-        }
-    }
-    #endregion
-
-    #region Movimentacao
-    void Movimento()
-    {
-        andando = true;
-        posicaoAlvo = alvo.transform.position;
-        posicaoAtual = transform.position;
-        direcao = (posicaoAlvo - posicaoAtual).normalized;
-        Debug.Log(direcao);
-        rig.MovePosition(Vector2.MoveTowards(posicaoAtual, posicaoAlvo, velocidade * Time.deltaTime));
-
-        Flip();
-    }
-
-    void Flip()
-    {
-        if (direcao.x != 0)
-        {
-            transform.right = Vector2.right * direcao.x;
-        }
-    }
-
-    void PararMovimento()
-    {
-        andando = false;
-        rig.velocity = Vector2.zero;
-    }
-
-    void Stun()
-    {
+        velocidadeOg = velocidade;
         velocidade = 0;
-        StartCoroutine(TempoStun());
+        StartCoroutine(StunReset());
     }
 
-    IEnumerator TempoStun()
+    IEnumerator StunReset()
     {
         yield return new WaitForSeconds(0.4f);
         velocidade = velocidadeOg;
     }
     #endregion
+
+    #region PerseguirJogador
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = defaultColor;
+        Gizmos.DrawWireSphere(transform.position, raio);
+        if (inRange)
+        {
+            Gizmos.color = rangeColor;
+            Gizmos.DrawWireSphere(transform.position, raio);
+        }
+
+        // Gizmo raio ataque
+        Gizmos.color = attackRangeColor;
+        Gizmos.DrawWireSphere(transform.position, raioAtaque);
+    }
+
+    private void ProcurarJogador()
+    {
+        Collider2D colisor = Physics2D.OverlapCircle(transform.position, raio, maskPlayer);
+        if (colisor != null)
+        {
+            inRange = true;
+            alvo = colisor.transform;
+        }
+        else
+        {
+            inRange = false;
+            alvo = null;
+        }
+    }
+    #endregion
+
+    public void Movimento()
+    {
+        Vector2 posAtual = transform.position;
+        Vector2 alvoPos = alvo.transform.position;
+        Vector2 direcao = Vector2.MoveTowards(posAtual, alvoPos, velocidade * Time.deltaTime);
+        rig.MovePosition(direcao);
+
+        if (direcao.x != 0)
+        {
+            transform.right = Vector2.right * (alvoPos - posAtual);
+        }
+    }
+
+    // Função de ataque
+    private void Atacar()
+    {
+        anim.Ataque();
+        Debug.Log("Inimigo atacou!");
+        StartCoroutine(ResetaAtaque());
+    }
+
+    // Coroutine para controlar o tempo entre os ataques
+    IEnumerator ResetaAtaque()
+    {
+        podeAtacar = false;
+        yield return new WaitForSeconds(tempoEntreAtaques);
+        podeAtacar = true;
+    }
 }

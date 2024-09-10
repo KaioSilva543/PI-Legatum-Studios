@@ -3,64 +3,119 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class playerCavaleiro : MonoBehaviour
+public class PlayerCavaleiro : MonoBehaviour
 {
+    #region publicVar
+    [Header("Stats")]
     public Vector2 input;
-    public bool atacou;
-    private Rigidbody2D rig;
+    public float velocidade;
+    public int vidaAtual, vidaMax, dano;
+    public bool ataque;
+    public BarraVida healthBar;
+    #endregion
 
-    public Inimigo inimigoScript;
-    
-    
-    [SerializeField] private float velocidade;
+    #region privateVar
+    private Rigidbody2D rig;
+    private bool jaAtacou;
+    private PlayerAnimC animPlayer;
+
+    #endregion;
 
     void Start()
     {
+        animPlayer = GetComponent<PlayerAnimC>();
         rig = GetComponent<Rigidbody2D>();
-    }
+        
+        vidaAtual = vidaMax;
+        healthBar.VidaMaxima(vidaMax);
+    }   
 
-    // Update is called once per frame
     void Update()
     {
-        Movimento();
     }
 
-    #region Movimentacao
+    private void FixedUpdate()
+    {
+        Movimento();
+        Ataque();
+    }
 
-    public void Movimento()
+    #region VidaPlayer
+    public void DanoTomado(int danoInimigo)
+    {
+        Debug.Log($"Player tomou {danoInimigo} de dano");
+        vidaAtual -= danoInimigo;
+        healthBar.MudarVida(vidaAtual);
+        animPlayer.Hit();
+
+        if (vidaAtual <= 0)
+        {
+            Debug.Log("Player morreu");
+            animPlayer.Death();
+            Destroy(gameObject, 2);
+        }
+    }
+    #endregion
+
+    #region Input
+    public void InputMove(InputAction.CallbackContext context)
+    {
+        input = context.ReadValue<Vector2>();  //Recebe o valor das teclas pressionadas
+        input.Normalize();
+    }
+
+    public void InputAttack(InputAction.CallbackContext context)
+    {
+        if (context.started)   //Similar ao Input.GetKeyDown()
+        {
+            ataque = true;
+        }
+        else if (context.canceled)
+        {
+            ataque= false;
+        }
+    }
+
+    #endregion
+
+    #region Acoes
+    void Movimento()
     {
         rig.velocity = input * velocidade;
-
+        animPlayer.Movimento();
         if (input.x != 0)
         {
-            transform.right = Vector2.right * input.x;
+            transform.right = Vector2.right * input.x;  //Realiza o flip mudando a rotação
+        }
+    }
+
+    void Ataque()
+    {
+        if (ataque && !jaAtacou)
+        {
+            Debug.Log("O personagem atacou");
+            jaAtacou = true;
+            animPlayer.Ataque();
+            StartCoroutine(Ataqueduracao());
+
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Inimigo")
+        if (collision.CompareTag("Inimigo"))
         {
-            inimigoScript.TomarDano(2);
+            Inimigo inimigo = collision.GetComponent<Inimigo>();
+            inimigo.TomarDano(dano);
         }
-    }
-    #endregion
-    #region Input
-    public void  InputKey(InputAction.CallbackContext value)
-    {
-        input = value.ReadValue<Vector2>();
     }
 
-    public void InputAttack(InputAction.CallbackContext value)
+    IEnumerator Ataqueduracao()
     {
-        if (value.started)
-        {
-            atacou = true;
-        }
-        else if (value.canceled)
-        {
-            atacou = false;
-        }
+        yield return new WaitForSeconds(0.8f);
+        jaAtacou = false;
+        
     }
     #endregion
+
 }

@@ -6,22 +6,16 @@ using UnityEngine.UI;
 public class BarraVida : MonoBehaviour
 {
     Slider slider;
-
-    public void mudarvida(int vida)
+    public void MudarVida(int vida)
     {
         slider = GetComponent<Slider>();
         slider.value = vida;
     }
 
-    public void vidaMaxima(int vida)
+    public void VidaMaxima(int vida)
     {
         slider = GetComponent<Slider>();
         slider.maxValue = vida;
         slider.value = vida;
-    }
-
-    private void LateUpdate()
-    {
-        transform.rotation = Quaternion.identity;
     }
 }

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 359f26a95def42544bd5b0f63a34ad81
+guid: 401dcee47cb9cd64196e337abcedc6f7
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 24
+  spritePixelsToUnits: 13
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -103,66 +103,6 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Windows Store Apps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: tvOS
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -181,8 +121,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3dec2413188ca714f9491b916c0b4416
-      internalID: 912833643
+      spriteID: af3ef11e9451ff74d9cdbd8d3802f94a
+      internalID: -196882503
       vertices: []
       indices: 
       edges: []
@@ -202,8 +142,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6eddad452c940794189bbae0ed8b32f8
-      internalID: 709888647
+      spriteID: 2c1331a93d9007a4cafc51ba1315824d
+      internalID: -823077580
       vertices: []
       indices: 
       edges: []
@@ -223,8 +163,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72559ec126332b94a89698bd9232caec
-      internalID: -1494484822
+      spriteID: d6bd89913cca6d34e8f819ca6d3058be
+      internalID: 67999114
       vertices: []
       indices: 
       edges: []
@@ -244,8 +184,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 61c03e7adec4fad4bb111f11ca501c43
-      internalID: 1134812112
+      spriteID: ce2db55e4376ff94993a2449d8fcf1ff
+      internalID: -1426662160
       vertices: []
       indices: 
       edges: []
@@ -265,8 +205,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 23402d3cfa9c3204dade547d4659fd69
-      internalID: 394612024
+      spriteID: a437388fc66cec745b9e19bbedb7ffce
+      internalID: -1330248359
       vertices: []
       indices: 
       edges: []
@@ -286,8 +226,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2b67159b987fa2b4495db69f31e102e2
-      internalID: -2016254844
+      spriteID: 3dce318d7a5e0724f8a75a5640e0438e
+      internalID: 1478732503
       vertices: []
       indices: 
       edges: []
@@ -307,8 +247,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ae212cf36be49a24589318dbad9b787b
-      internalID: -820769385
+      spriteID: 3194eff12c43cf4498ac87b7209ffb24
+      internalID: 1319668698
       vertices: []
       indices: 
       edges: []
@@ -328,8 +268,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 937d9c9bb12e9b142a509bda87f912ab
-      internalID: 1798160268
+      spriteID: 1fbc6449fa22e16419adab4efdadc230
+      internalID: 2096131936
       vertices: []
       indices: 
       edges: []
@@ -345,14 +285,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Cavaleiro-Anim-Parado_0: 912833643
-      Cavaleiro-Anim-Parado_1: 709888647
-      Cavaleiro-Anim-Parado_2: -1494484822
-      Cavaleiro-Anim-Parado_3: 1134812112
-      Cavaleiro-Anim-Parado_4: 394612024
-      Cavaleiro-Anim-Parado_5: -2016254844
-      Cavaleiro-Anim-Parado_6: -820769385
-      Cavaleiro-Anim-Parado_7: 1798160268
+      Cavaleiro-Anim-Parado_0: -196882503
+      Cavaleiro-Anim-Parado_1: -823077580
+      Cavaleiro-Anim-Parado_2: 67999114
+      Cavaleiro-Anim-Parado_3: -1426662160
+      Cavaleiro-Anim-Parado_4: -1330248359
+      Cavaleiro-Anim-Parado_5: 1478732503
+      Cavaleiro-Anim-Parado_6: 1319668698
+      Cavaleiro-Anim-Parado_7: 2096131936
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

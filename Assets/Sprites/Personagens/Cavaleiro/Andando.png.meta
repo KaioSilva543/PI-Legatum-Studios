@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1cfe4c43ae0725a4496a27ecff36c5e0
+guid: e51b315de8ac3eb49818af44d378c0df
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 24
+  spritePixelsToUnits: 13
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -103,66 +103,6 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Windows Store Apps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: tvOS
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -181,8 +121,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e5e9bd24e69b5174783c4ac967653bbf
-      internalID: 2014906933
+      spriteID: 5ea0d84020696f248835f01172ef1fcf
+      internalID: 364542244
       vertices: []
       indices: 
       edges: []
@@ -202,8 +142,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 77e330cad20ae2248aa9c6ae0ef66a48
-      internalID: 2015159278
+      spriteID: 502d87824cee0964f8ea1a158fc2d370
+      internalID: -1458638834
       vertices: []
       indices: 
       edges: []
@@ -223,8 +163,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a343211e9700d74458358eb1f8bc9cb0
-      internalID: -692298483
+      spriteID: 54be229493fa4714b8b8cfd45cbc7f2a
+      internalID: -1874159758
       vertices: []
       indices: 
       edges: []
@@ -244,8 +184,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b3a99867ee69e943a0b0d25882f53a3
-      internalID: 1767397045
+      spriteID: 5971a9313b03849418093280a7cac965
+      internalID: -292376955
       vertices: []
       indices: 
       edges: []
@@ -265,8 +205,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1ebd7d46878ca5c4f84cf310bbcf6b28
-      internalID: 1349196733
+      spriteID: 11274ede6f4221c4d93cf22c11a21195
+      internalID: -1290093541
       vertices: []
       indices: 
       edges: []
@@ -286,8 +226,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7061359f72c4a0e49a817fc2b7b1ec4c
-      internalID: -833606182
+      spriteID: 137eb59850b5c6a4d8719924e3f92a95
+      internalID: 1347021231
       vertices: []
       indices: 
       edges: []
@@ -307,8 +247,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3c11a75f6d9a9b84e90df64e01559796
-      internalID: -1328309993
+      spriteID: 6a165ac399be0b14dba800233f260b77
+      internalID: -1076969779
       vertices: []
       indices: 
       edges: []
@@ -328,8 +268,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d43cfc88875d7214988094ece06de358
-      internalID: -195255350
+      spriteID: 96ea2cb85b8c0ba4fa11749cb191f0bb
+      internalID: 223515288
       vertices: []
       indices: 
       edges: []
@@ -349,8 +289,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 702ea860f1fd570458560bb4d8085410
-      internalID: -2048663888
+      spriteID: e068fa2dade960648bb02f896c54ef8f
+      internalID: -542966990
       vertices: []
       indices: 
       edges: []
@@ -370,8 +310,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bcebfe0bd614e974b91c52843ad0aa0d
-      internalID: -316095730
+      spriteID: 9ff7fca306547624abf222465f8c349f
+      internalID: 517360906
       vertices: []
       indices: 
       edges: []
@@ -387,16 +327,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Andando_0: 2014906933
-      Andando_1: 2015159278
-      Andando_2: -692298483
-      Andando_3: 1767397045
-      Andando_4: 1349196733
-      Andando_5: -833606182
-      Andando_6: -1328309993
-      Andando_7: -195255350
-      Andando_8: -2048663888
-      Andando_9: -316095730
+      Andando_0: 364542244
+      Andando_1: -1458638834
+      Andando_2: -1874159758
+      Andando_3: -292376955
+      Andando_4: -1290093541
+      Andando_5: 1347021231
+      Andando_6: -1076969779
+      Andando_7: 223515288
+      Andando_8: -542966990
+      Andando_9: 517360906
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

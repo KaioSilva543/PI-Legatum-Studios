@@ -4,46 +4,39 @@ using UnityEngine;
 
 public class InimigoAnim : MonoBehaviour
 {
-    Inimigo inimigoScript;
     Animator animator;
+    Inimigo inimigo;
     void Start()
     {
+        inimigo = GetComponent<Inimigo>();
         animator = GetComponentInChildren<Animator>();
-        inimigoScript = GetComponent<Inimigo>();
     }
+    
 
-    // Update is called once per frame
-    void Update()
+    public void Movimento()
     {
-        Movimentacao();
-    }
-
-    void Movimentacao()
-    {
-        if(inimigoScript.andando)
+        if (inimigo.alvo != null)
         {
-            animator.SetInteger("cond", 1);
+            animator.SetInteger("Cond", 1);
         }
-        else
+        else if (inimigo.alvo == null)
         {
-            animator.SetInteger("cond", 0);
-        }
-    }
-
-    public void Hit()
-    {
-        animator.SetTrigger("Hit");
-    }
-
-    public void Morte()
-    {
-        {
-            animator.SetBool("Morto", true);
+            animator.SetInteger("Cond", 0);
         }
     }
 
     public void Ataque()
     {
-        animator.SetTrigger("Ataque");
+        animator.SetTrigger("Atacou");
+    }
+
+    public void Hit()
+    {
+        animator.SetTrigger("Dano");
+    }
+
+    public void Morte()
+    {
+        animator.SetBool("Morto", true);
     }
 }

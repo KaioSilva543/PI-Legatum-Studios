@@ -1,110 +1,114 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
-    private Rigidbody2D rbPlayer;
-    public Vector2 Direcao;
-    private PlayerHud playerHud;
+    #region publicVar
+    [Header("Stats")]
+    public Vector2 input;
+    public float velocidade;
+    public int vidaAtual, vidaMax;
+    public bool ataque;
+    #endregion
 
-    [Header("Variaveis")]
-    [SerializeField] private float Velocidade, Correr;
+    #region privateVar
+    public BarraVida healthBar;
+    private Rigidbody2D rig;
+    private bool jaAtacou;
+    private PlayerAnim animPlayer;
+    private Transform spawnPoint;
 
-    private float VeloInicial;
-    public bool Correu, Atacou, Parou, teste;
-    void Awake()
-    {
-        rbPlayer = GetComponent<Rigidbody2D>();
-        playerHud = GetComponent<PlayerHud>();
-    }
+    #endregion;
 
     void Start()
     {
-        teste = false;
-        VeloInicial = Velocidade;
-    }
-    
+        spawnPoint = GetComponentInChildren<Transform>();
+        animPlayer = GetComponent<PlayerAnim>();
+        rig = GetComponent<Rigidbody2D>();
+
+        vidaAtual = vidaMax;
+        healthBar.VidaMaxima(vidaMax);
+    }   
+
     void Update()
     {
-        OnInput();
-        CorrePlayer();
+    }
+
+    private void FixedUpdate()
+    {
+        Movimento();
         Ataque();
     }
 
-    void FixedUpdate()
+    #region VidaPlayer
+    public void DanoTomado(int danoInimigo)
     {
-        MovePlayer();
+        Debug.Log($"Player tomou {danoInimigo} de dano");
+        vidaAtual -= danoInimigo;
+        healthBar.MudarVida(vidaAtual);
+        animPlayer.Hit();
+
+        if (vidaAtual <= 0)
+        {
+            Debug.Log("Player morreu");
+            animPlayer.Death();
+        }
+    }
+    #endregion
+
+    #region Input
+    public void InputMove(InputAction.CallbackContext context)
+    {
+        input = context.ReadValue<Vector2>();  //Recebe o valor das teclas pressionadas
+        input.Normalize();
     }
 
-    void OnInput()
+    public void InputAttack(InputAction.CallbackContext context)
     {
-        Direcao = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        if (context.started)   //Similar ao Input.GetKeyDown()
+        {
+            ataque = true;
+        }
+        else if (context.canceled)
+        {
+            ataque= false;
+        }
     }
 
-    //MOVIMENTO DO PLAYER
-    void MovePlayer()
-    {
-        rbPlayer.MovePosition(rbPlayer.position + Direcao * Velocidade * Time.fixedDeltaTime);
+    #endregion
 
-        if (Direcao.x > 0)
-        {
-            transform.eulerAngles = new Vector2(0, 0);
-        }
-        else if (Direcao.x < 0)
-        {
-            transform.eulerAngles = new Vector2(0, 180);
-        }
-    }
-    //PLAYER CORRENDO
-    void CorrePlayer()
+    #region Acoes
+    void Movimento()
     {
-        if(playerHud.vigorPlayer > 0)
+        rig.velocity = input * velocidade;
+        animPlayer.Movimento();
+        if (input.x != 0)
         {
-            if (Input.GetKeyDown(KeyCode.LeftShift))
-            {
-                Velocidade = Correr;
-                Correu = true;
-                Parou = false;
-                teste = true;
-            }
-        }else if (playerHud.vigorPlayer <= 0)
-        {
-            Velocidade = VeloInicial;
-        }
-        if (Input.GetKeyUp(KeyCode.LeftShift))
-        {
-            Velocidade = VeloInicial;
-            Correu = false;
-            Parou = true;
+            transform.right = Vector2.right * input.x;  //Realiza o flip mudando a rotação
         }
     }
-    //ATAQUE DO PLAYER
+
     void Ataque()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (ataque && !jaAtacou)
         {
-            Atacou = true;
-        }
-        else if (Input.GetMouseButtonUp(0))
-        {
-            Atacou = false;
+            Debug.Log("O personagem atacou");
+            jaAtacou = true;
+            animPlayer.Ataque();
+            Instantiate(Resources.Load("Prefabs/Fireball"), spawnPoint.position, transform.rotation);
+            StartCoroutine(Ataqueduracao());
+
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    IEnumerator Ataqueduracao()
     {
-        //PLAYER PERDENDO VIDA
-        if (collision.CompareTag("Inimigo"))
-        {
-            playerHud.vidaPlayer -= 2;
-            print("perdeu vida");
-        }
+        yield return new WaitForSeconds(1.2f);
+        jaAtacou = false;
+        
     }
-    //
-    public Vector2 _Direcao
-    {
-        get { return Direcao; }
-        set { Direcao = value; }
-    }
+    #endregion
+
 }

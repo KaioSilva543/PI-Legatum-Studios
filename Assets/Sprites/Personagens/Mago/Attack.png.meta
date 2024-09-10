@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fa76db825e1a33549a6db800ba19a99e
+guid: 3b62e5bc1ad86be45802abd7298f0aea
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -103,66 +103,6 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Windows Store Apps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: tvOS
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -181,8 +121,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7d7bc4ca8516d4842929e79f4dabcf4b
-      internalID: 1589069461
+      spriteID: ec56bf05a9817c74c8142867299ed8b9
+      internalID: -1124284382
       vertices: []
       indices: 
       edges: []
@@ -202,8 +142,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d72512143e651d04eb81a5b86dbcd32e
-      internalID: -1849353206
+      spriteID: fed1a1961037bdf45bef0d8d7037ba48
+      internalID: -270223932
       vertices: []
       indices: 
       edges: []
@@ -223,8 +163,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 369d5c92ab87aa3429b050846919123d
-      internalID: -683016807
+      spriteID: 7e87c1098cfc27a4bb25a64194bbdc83
+      internalID: 66328885
       vertices: []
       indices: 
       edges: []
@@ -244,8 +184,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74a8be79019aeaa4d942e1518a2e9426
-      internalID: 1988628162
+      spriteID: 156950f5d78875d41a1fa5b73f884d34
+      internalID: -1949992258
       vertices: []
       indices: 
       edges: []
@@ -265,8 +205,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 469de2ce67efc0b46b5fc13bbaad0690
-      internalID: -537024649
+      spriteID: bb81ad24de6afcd4aa82cdaaa945ef31
+      internalID: 490571226
       vertices: []
       indices: 
       edges: []
@@ -286,8 +226,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 28a42b07834495a49ac8cf2a9994eb9d
-      internalID: -1967594386
+      spriteID: 4dd9ab6331bd4fc4fbe6a34572fe9ea1
+      internalID: -1436161309
       vertices: []
       indices: 
       edges: []
@@ -307,8 +247,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a13ce8281ea025048951d02a8bb0e534
-      internalID: 481949179
+      spriteID: 700bde77bafa58c4584badb4c7769314
+      internalID: 442692429
       vertices: []
       indices: 
       edges: []
@@ -328,8 +268,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 327274f3e603f934eb8e1bd49ba486c4
-      internalID: 1923341334
+      spriteID: 35be6486da64705498b37977d8dea3df
+      internalID: 1359498258
       vertices: []
       indices: 
       edges: []
@@ -349,8 +289,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bc309ef0861bec8448af7a54a7cbcdc2
-      internalID: -1727385463
+      spriteID: ccb7edfe88daec540b81e0f5441f1043
+      internalID: -1253594976
       vertices: []
       indices: 
       edges: []
@@ -370,8 +310,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 88a5397796f3b90418897bcf7b232383
-      internalID: 767426219
+      spriteID: be127f23896f11c4f979bddae29ef0e0
+      internalID: -314245206
       vertices: []
       indices: 
       edges: []
@@ -391,8 +331,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 672f93346b190b346bff31f7f217c90f
-      internalID: -1767459671
+      spriteID: b06ed24b40017fc41ae9ced57ebe2336
+      internalID: 1432749105
       vertices: []
       indices: 
       edges: []
@@ -412,8 +352,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c7f54bcb6b7fe9345ad3a32a139d13d7
-      internalID: -1325294438
+      spriteID: c0f2ccd35bd7dc94e8ddaa8641fad086
+      internalID: 1469084875
       vertices: []
       indices: 
       edges: []
@@ -429,18 +369,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Attack_0: 1589069461
-      Attack_1: -1849353206
-      Attack_10: -1767459671
-      Attack_11: -1325294438
-      Attack_2: -683016807
-      Attack_3: 1988628162
-      Attack_4: -537024649
-      Attack_5: -1967594386
-      Attack_6: 481949179
-      Attack_7: 1923341334
-      Attack_8: -1727385463
-      Attack_9: 767426219
+      Attack_0: -1124284382
+      Attack_1: -270223932
+      Attack_10: 1432749105
+      Attack_11: 1469084875
+      Attack_2: 66328885
+      Attack_3: -1949992258
+      Attack_4: 490571226
+      Attack_5: -1436161309
+      Attack_6: 442692429
+      Attack_7: 1359498258
+      Attack_8: -1253594976
+      Attack_9: -314245206
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
