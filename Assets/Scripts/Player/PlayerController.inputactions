@@ -39,7 +39,7 @@
                 {
                     "name": "up",
                     "id": "72eb1945-952e-4ccf-8a10-03ae13e14fdf",
-                    "path": "<Joystick>/stick/down",
+                    "path": "<Gamepad>/leftStick/up",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -139,6 +139,17 @@
                     "name": "",
                     "id": "01b69ebc-1683-4b03-86fb-76113e60d94e",
                     "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Ataque",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a1663a3d-06ac-4d71-af81-25a330cac5ab",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

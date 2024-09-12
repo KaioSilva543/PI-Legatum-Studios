@@ -8,7 +8,7 @@ public class Inimigo : MonoBehaviour
 
     [Header("Stats")]
     public float velocidade;
-    private float velocidadeOg;
+    public float velocidadeOg;
     public int vidaAtual, vidaMax;
 
     private Rigidbody2D rig;
@@ -36,6 +36,7 @@ public class Inimigo : MonoBehaviour
         anim = GetComponent<InimigoAnim>();
         rig = GetComponent<Rigidbody2D>();
         vidaAtual = vidaMax;
+        velocidadeOg = velocidade;
     }
 
     void Update()
@@ -83,7 +84,6 @@ public class Inimigo : MonoBehaviour
 
     private void Stun()
     {
-        velocidadeOg = velocidade;
         velocidade = 0;
         StartCoroutine(StunReset());
     }
@@ -143,6 +143,7 @@ public class Inimigo : MonoBehaviour
     // Função de ataque
     private void Atacar()
     {
+        velocidade = 0;
         anim.Ataque();
         Debug.Log("Inimigo atacou!");
         StartCoroutine(ResetaAtaque());
@@ -154,5 +155,6 @@ public class Inimigo : MonoBehaviour
         podeAtacar = false;
         yield return new WaitForSeconds(tempoEntreAtaques);
         podeAtacar = true;
+        velocidade = velocidadeOg;
     }
 }

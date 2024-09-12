@@ -12,6 +12,8 @@ public class PlayerCavaleiro : MonoBehaviour
     public int vidaAtual, vidaMax, dano;
     public bool ataque;
     public BarraVida healthBar;
+
+    public GameObject menu;
     #endregion
 
     #region privateVar
@@ -50,10 +52,17 @@ public class PlayerCavaleiro : MonoBehaviour
 
         if (vidaAtual <= 0)
         {
-            Debug.Log("Player morreu");
-            animPlayer.Death();
-            Destroy(gameObject, 2);
+            Morte();
         }
+    }
+
+    private void Morte()
+    {
+        Debug.Log("Player morreu");
+        animPlayer.Death();
+        GetComponent<Rigidbody2D>().simulated = false;
+        GetComponent<PlayerInput>().enabled = false;
+        menu.GetComponentInChildren<MenuControl>().ShowGameOver();
     }
     #endregion
 
