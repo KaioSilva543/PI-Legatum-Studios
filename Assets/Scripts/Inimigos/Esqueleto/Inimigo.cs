@@ -39,7 +39,7 @@ public class Inimigo : MonoBehaviour
         velocidadeOg = velocidade;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         ProcurarJogador();
         anim.Movimento();

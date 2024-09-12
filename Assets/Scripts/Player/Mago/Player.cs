@@ -52,9 +52,16 @@ public class Player : MonoBehaviour
 
         if (vidaAtual <= 0)
         {
-            Debug.Log("Player morreu");
-            animPlayer.Death();
+            Morte();
         }
+    }
+
+    private void Morte()
+    {
+        Debug.Log("Player morreu");
+        animPlayer.Death();
+        GetComponent<Rigidbody2D>().simulated = false;
+        GetComponent<PlayerInput>().enabled = false;
     }
     #endregion
 
