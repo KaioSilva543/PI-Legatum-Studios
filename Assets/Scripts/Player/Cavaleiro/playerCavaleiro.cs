@@ -23,6 +23,12 @@ public class PlayerCavaleiro : MonoBehaviour
 
     #endregion;
 
+    Bau bau;
+
+    private void Awake()
+    {
+        bau = FindObjectOfType<Bau>();
+    }
     void Start()
     {
         animPlayer = GetComponent<PlayerAnimC>();
@@ -34,6 +40,7 @@ public class PlayerCavaleiro : MonoBehaviour
 
     void Update()
     {
+        
     }
 
     private void FixedUpdate()
@@ -110,6 +117,8 @@ public class PlayerCavaleiro : MonoBehaviour
         }
     }
 
+    
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Inimigo"))
@@ -117,6 +126,17 @@ public class PlayerCavaleiro : MonoBehaviour
             Inimigo inimigo = collision.GetComponent<Inimigo>();
             inimigo.TomarDano(dano);
         }
+
+        //if (collision.CompareTag("Interacoes"))
+        //{
+        //    print("colidiu");
+        //    if (Input.GetKeyDown(KeyCode.E))
+        //    {
+                
+        //        bau.AnimBau();
+        //    }
+
+        //}
     }
 
     IEnumerator Ataqueduracao()
