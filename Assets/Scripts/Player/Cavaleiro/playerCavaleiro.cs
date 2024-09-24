@@ -10,9 +10,10 @@ public class PlayerCavaleiro : MonoBehaviour
     public Vector2 input;
     public float velocidade;
     public int vidaAtual, vidaMax, dano;
-    public bool ataque;
+    public bool ataque, Abriu;
     public BarraVida healthBar;
 
+    public static PlayerCavaleiro playerCavaleiro;
     public GameObject menu;
     #endregion
 
@@ -27,11 +28,14 @@ public class PlayerCavaleiro : MonoBehaviour
 
     private void Awake()
     {
-        bau = FindObjectOfType<Bau>();
+        //bau = FindObjectOfType<Bau>();
+
+        bau = FindAnyObjectByType<Bau>();
     }
     void Start()
     {
         animPlayer = GetComponent<PlayerAnimC>();
+
         rig = GetComponent<Rigidbody2D>();
         
         vidaAtual = vidaMax;
@@ -40,7 +44,7 @@ public class PlayerCavaleiro : MonoBehaviour
 
     void Update()
     {
-        
+        AbrirBau();
     }
 
     private void FixedUpdate()
@@ -117,7 +121,14 @@ public class PlayerCavaleiro : MonoBehaviour
         }
     }
 
-    
+    void AbrirBau()
+    {
+        if (Input.GetKeyDown(KeyCode.E) && bau.Entrou)
+        {
+            print("Baú Abriu");
+            Abriu = true;
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using UnityEngine;
 
 public class Bau : MonoBehaviour
@@ -10,39 +11,54 @@ public class Bau : MonoBehaviour
 
     public bool Entrou;
 
+    PlayerCavaleiro playerCavaleiro;
+
+    [SerializeField] Transform Ponto;
+    [SerializeField] public float RaioBau;
+    [SerializeField] LayerMask JogadorLayer;
+
     private void Awake()
     {
         anim = GetComponent<Animator>();
+
+        playerCavaleiro = FindObjectOfType<PlayerCavaleiro>();
     }
 
     void Start()
     {
         
     }
-
+  
     
     void Update()
     {
-        
+        AnimBau();
+    }
+
+    private void FixedUpdate()
+    {
+        BauCheck();
     }
 
     public void AnimBau()
     {
-        anim.SetTrigger("BauAbrindo");
+        if (playerCavaleiro.Abriu)
+        {
+            anim.SetTrigger("BauAbrindo");
+        }
     }
 
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    if (collision.CompareTag("Player"))
-    //    {
-    //        Entrou = true;
-    //    }
-    //}
-    //private void OnTriggerExit2D(Collider2D collision)
-    //{
-    //    if (collision.CompareTag("Player"))
-    //    {
-    //        Entrou = false;
-    //    }
-    //}
+    private void BauCheck()
+    {
+        Collider2D CheckBau = Physics2D.OverlapCircle(Ponto.position, RaioBau, JogadorLayer);
+        if (CheckBau != null)
+        {
+            Entrou = true;
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(Ponto.position, RaioBau);
+    }
 }
