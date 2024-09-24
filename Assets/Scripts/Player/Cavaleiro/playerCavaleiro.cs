@@ -21,7 +21,7 @@ public class PlayerCavaleiro : MonoBehaviour
     private Rigidbody2D rig;
     private bool jaAtacou;
     private PlayerAnimC animPlayer;
-
+    private PlayerItens pItens;
     #endregion;
 
     Bau bau;
@@ -29,7 +29,7 @@ public class PlayerCavaleiro : MonoBehaviour
     private void Awake()
     {
         //bau = FindObjectOfType<Bau>();
-
+        pItens = GetComponent<PlayerItens>();
         bau = FindAnyObjectByType<Bau>();
     }
     void Start()
@@ -45,6 +45,7 @@ public class PlayerCavaleiro : MonoBehaviour
     void Update()
     {
         AbrirBau();
+        UsarVida();
     }
 
     private void FixedUpdate()
@@ -130,6 +131,18 @@ public class PlayerCavaleiro : MonoBehaviour
         }
     }
 
+    void UsarVida()
+    {
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            if (pItens.pocaoVida > 0)
+            {
+                print("Usou poção de cura");
+                pItens.pocaoVida--;
+            }
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Inimigo"))
@@ -137,6 +150,7 @@ public class PlayerCavaleiro : MonoBehaviour
             Inimigo inimigo = collision.GetComponent<Inimigo>();
             inimigo.TomarDano(dano);
         }
+
 
         //if (collision.CompareTag("Interacoes"))
         //{
