@@ -24,17 +24,6 @@ public class Bau : MonoBehaviour
         playerCavaleiro = FindObjectOfType<PlayerCavaleiro>();
     }
 
-    void Start()
-    {
-        
-    }
-  
-    
-    void Update()
-    {
-        AnimBau();
-    }
-
     private void FixedUpdate()
     {
         BauCheck();
@@ -42,10 +31,7 @@ public class Bau : MonoBehaviour
 
     public void AnimBau()
     {
-        if (playerCavaleiro.Abriu)
-        {
-            anim.SetTrigger("BauAbrindo");
-        }
+        anim.SetTrigger("BauAbrindo");
     }
 
     private void BauCheck()
@@ -54,6 +40,10 @@ public class Bau : MonoBehaviour
         if (CheckBau != null)
         {
             Entrou = true;
+        }
+        else
+        {
+            Entrou = false;
         }
     }
 
