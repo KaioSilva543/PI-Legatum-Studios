@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerCavaleiro : MonoBehaviour
 {
@@ -21,6 +22,8 @@ public class PlayerCavaleiro : MonoBehaviour
     private Rigidbody2D rig;
     private bool jaAtacou;
     private PlayerAnimC animPlayer;
+    private EntradaCaverna entradacaverna;
+    private float velocidadeInicial;
     #endregion;
 
     Bau bau;
@@ -29,11 +32,13 @@ public class PlayerCavaleiro : MonoBehaviour
     {
         //bau = FindObjectOfType<Bau>();
         bau = FindAnyObjectByType<Bau>();
+        entradacaverna = FindObjectOfType<EntradaCaverna>();
+        velocidadeInicial = velocidade;
     }
     void Start()
     {
         animPlayer = GetComponent<PlayerAnimC>();
-
+        
         rig = GetComponent<Rigidbody2D>();
         
         vidaAtual = vidaMax;
@@ -42,6 +47,7 @@ public class PlayerCavaleiro : MonoBehaviour
 
     void Update()
     {
+        EntrarCaverna();
     }
 
     private void FixedUpdate()
@@ -126,6 +132,7 @@ public class PlayerCavaleiro : MonoBehaviour
             Debug.Log("O personagem atacou");
             jaAtacou = true;
             animPlayer.Ataque();
+            velocidade = 0;
             StartCoroutine(Ataqueduracao());
 
         }
@@ -138,25 +145,21 @@ public class PlayerCavaleiro : MonoBehaviour
             Inimigo inimigo = collision.GetComponent<Inimigo>();
             inimigo.TomarDano(dano);
         }
+    }
 
-
-        //if (collision.CompareTag("Interacoes"))
-        //{
-        //    print("colidiu");
-        //    if (Input.GetKeyDown(KeyCode.E))
-        //    {
-
-        //        bau.AnimBau();
-        //    }
-
-        //}
+    void EntrarCaverna()
+    {
+        if (entradacaverna.Entrou && Input.GetKeyDown(KeyCode.C))
+        {
+            SceneManager.LoadScene("Fase2");
+        }
     }
 
     IEnumerator Ataqueduracao()
     {
         yield return new WaitForSeconds(0.8f);
         jaAtacou = false;
-        
+        velocidade = velocidadeInicial;
     }
     #endregion
 
