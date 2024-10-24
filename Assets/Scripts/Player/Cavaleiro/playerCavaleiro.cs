@@ -144,6 +144,10 @@ public class PlayerCavaleiro : MonoBehaviour
         {
             Inimigo inimigo = collision.GetComponent<Inimigo>();
             inimigo.TomarDano(dano);
+
+
+            inimigoGoblin inimigoG = collision.GetComponent<inimigoGoblin>();
+            inimigoG.TomarDano(dano);
         }
     }
 
