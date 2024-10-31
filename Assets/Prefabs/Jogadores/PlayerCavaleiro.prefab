@@ -54,7 +54,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a43b9f7581bc65044a8c923e2036b42c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -220,7 +220,7 @@ Transform:
   m_Children:
   - {fileID: 3916326744123856571}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &8994230528105808436
 Rigidbody2D:
@@ -393,6 +393,8 @@ MonoBehaviour:
   Abriu: 0
   healthBar: {fileID: 0}
   menu: {fileID: 0}
+  spriteRenderer: {fileID: 1743993172877266029}
+  _hitBox: {fileID: 9171246194111174790}
 --- !u!114 &3791211679951519486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -437,6 +439,6 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.094242096, y: 1.0013056}
-  m_Size: {x: 1.1832428, y: 3.0026116}
+  m_Offset: {x: -0.020941794, y: -0.4372093}
+  m_Size: {x: 1.0366422, y: 2.8376863}
   m_Direction: 0

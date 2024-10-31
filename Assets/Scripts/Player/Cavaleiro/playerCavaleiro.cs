@@ -24,6 +24,8 @@ public class PlayerCavaleiro : MonoBehaviour
     private PlayerAnimC animPlayer;
     private EntradaCaverna entradacaverna;
     private float velocidadeInicial;
+    [SerializeField] SpriteRenderer spriteRenderer;
+    [SerializeField] Transform _hitBox;
     #endregion;
 
     Bau bau;
@@ -119,9 +121,16 @@ public class PlayerCavaleiro : MonoBehaviour
     {
         rig.velocity = input * velocidade;
         animPlayer.Movimento();
-        if (input.x != 0)
+        if (input.x > 0)
         {
-            transform.right = Vector2.right * input.x;  //Realiza o flip mudando a rotação
+            // transform.right = Vector2.right * input.x;  //Realiza o flip mudando a rotação
+            spriteRenderer.flipX = false;
+            _hitBox.transform.localScale = new Vector2(1, _hitBox.transform.localScale.y);  
+        }
+        else if (input.x < 0)
+        {
+            spriteRenderer.flipX = true;
+            _hitBox.transform.localScale = new Vector2(-1, _hitBox.transform.localScale.y);    //realiza a rotação do player
         }
     }
 

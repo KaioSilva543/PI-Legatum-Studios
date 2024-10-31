@@ -13,6 +13,8 @@ public class Inimigo : MonoBehaviour
 
     private Rigidbody2D rig;
     private InimigoAnim anim;
+    [SerializeField] private SpriteRenderer Sr;
+    [SerializeField] private Transform HitBox;
 
     [Header("Attack Settings")]
     public float tempoEntreAtaques = 1.5f;
@@ -134,9 +136,16 @@ public class Inimigo : MonoBehaviour
         Vector2 direcao = Vector2.MoveTowards(posAtual, alvoPos, velocidade * Time.deltaTime);
         rig.MovePosition(direcao);
 
-        if (direcao.x != 0)
+        if (direcao.x > 0)
         {
-            transform.right = Vector2.right * (alvoPos - posAtual);
+            //transform.right = Vector2.right * (alvoPos - posAtual);
+            Sr.flipX = false;
+            HitBox.transform.localScale = new Vector2(0.2f, HitBox.transform.localScale.y);
+        }
+        else if (direcao.x < 0)
+        {
+            Sr.flipX = true;
+            HitBox.transform.localScale = new Vector2(-0.2f, HitBox.transform.localScale.y);
         }
     }
 
