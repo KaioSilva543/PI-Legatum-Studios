@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class TelaInicio : MonoBehaviour
 {
-    public int number;
+    
     void Start()
     {
         
@@ -20,12 +20,10 @@ public class TelaInicio : MonoBehaviour
     public void Iniciar(string cena)
     {
         SceneManager.LoadScene(cena);
-
-        
     }
 
-    public void Teste()
+    public void Sair()
     {
-        number = 1;
+        Application.Quit();
     }
 }

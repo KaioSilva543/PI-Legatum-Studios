@@ -181,7 +181,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Select Player
+  m_text: Selecionar Player
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 37274711679e0ac428edc5ade1fb141e, type: 2}
   m_sharedMaterial: {fileID: -5965109763713689049, guid: 37274711679e0ac428edc5ade1fb141e, type: 2}
@@ -208,8 +208,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 122.5
-  m_fontSizeBase: 122.5
+  m_fontSize: 90
+  m_fontSizeBase: 90
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -771,6 +771,10 @@ PrefabInstance:
       propertyPath: bordas.Array.data[0]
       value: 
       objectReference: {fileID: 1247474925}
+    - target: {fileID: 7461856480863599679, guid: c97cd8c64eb448e4f837f8fe782078d9, type: 3}
+      propertyPath: m_text
+      value: Cavaleiro
+      objectReference: {fileID: 0}
     - target: {fileID: 8766101154342175130, guid: c97cd8c64eb448e4f837f8fe782078d9, type: 3}
       propertyPath: m_Name
       value: CharacterPortraitKnight
@@ -1050,6 +1054,10 @@ PrefabInstance:
       propertyPath: bordas.Array.data[1]
       value: 
       objectReference: {fileID: 1384037049}
+    - target: {fileID: 7461856480863599679, guid: c97cd8c64eb448e4f837f8fe782078d9, type: 3}
+      propertyPath: m_text
+      value: Mago
+      objectReference: {fileID: 0}
     - target: {fileID: 8766101154342175130, guid: c97cd8c64eb448e4f837f8fe782078d9, type: 3}
       propertyPath: m_Name
       value: CharacterPortraitMage
