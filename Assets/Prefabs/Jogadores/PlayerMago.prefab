@@ -157,7 +157,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4863174546886885988
 Transform:
   m_ObjectHideFlags: 0
@@ -165,7 +165,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2911491302541542413}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -11.71, y: 0.11, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -173,7 +173,7 @@ Transform:
   - {fileID: 8409497003224051748}
   - {fileID: 6086146231250671485}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &6407771712100621055
 Rigidbody2D:
@@ -321,6 +321,8 @@ MonoBehaviour:
   vidaMax: 10
   ataque: 0
   healthBar: {fileID: 0}
+  spriteRenderer: {fileID: 729652108942024829}
+  materialC: {fileID: 2100000, guid: a43b9f7581bc65044a8c923e2036b42c, type: 2}
 --- !u!114 &845316729966354849
 MonoBehaviour:
   m_ObjectHideFlags: 0

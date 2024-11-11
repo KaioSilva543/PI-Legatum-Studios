@@ -26,6 +26,7 @@ public class PlayerCavaleiro : MonoBehaviour
     private float velocidadeInicial;
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] Transform _hitBox;
+    [SerializeField] Material materialC;
     #endregion;
 
     Bau bau;
@@ -165,6 +166,7 @@ public class PlayerCavaleiro : MonoBehaviour
         if (entradacaverna.Entrou && Input.GetKeyDown(KeyCode.C))
         {
             SceneManager.LoadScene("Fase2");
+            spriteRenderer.material = materialC;
         }
     }
 

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -17,16 +18,23 @@ public class Player : MonoBehaviour
     public BarraVida healthBar;
     private Rigidbody2D rig;
     private bool jaAtacou;
+    private EntradaCaverna entradacaverna;
     private PlayerAnim animPlayer;
     private Transform spawnPoint;
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] Material materialC;
 
     #endregion;
-
-    void Start()
+    private void Awake()
     {
         spawnPoint = GetComponentInChildren<Transform>();
         animPlayer = GetComponent<PlayerAnim>();
         rig = GetComponent<Rigidbody2D>();
+        entradacaverna = FindObjectOfType<EntradaCaverna>();
+    }
+    void Start()
+    {
+        
 
         vidaAtual = vidaMax;
         healthBar.VidaMaxima(vidaMax);
@@ -34,6 +42,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        EntrarCaverna();
     }
 
     private void FixedUpdate()
@@ -81,6 +90,15 @@ public class Player : MonoBehaviour
         else if (context.canceled)
         {
             ataque= false;
+        }
+    }
+
+    void EntrarCaverna()
+    {
+        if (entradacaverna.Entrou && Input.GetKeyDown(KeyCode.C))
+        {
+            SceneManager.LoadScene("Fase2");
+            spriteRenderer.material = materialC;
         }
     }
 
