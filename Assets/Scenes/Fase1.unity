@@ -179,6 +179,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InimigoEsqueleto (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 9006677209516110821, guid: 29b29345f11bff64db674d8ae140acf6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2819,6 +2823,10 @@ PrefabInstance:
     - target: {fileID: 9006677209516110821, guid: 29b29345f11bff64db674d8ae140acf6, type: 3}
       propertyPath: m_Name
       value: InimigoEsqueleto (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9006677209516110821, guid: 29b29345f11bff64db674d8ae140acf6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -31109,6 +31117,67 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1001 &1029513038
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2552319654738444228, guid: f5a4d9465f977fd41938caf21f4ecbc2, type: 3}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 2552319654738444228, guid: f5a4d9465f977fd41938caf21f4ecbc2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2552319654738444228, guid: f5a4d9465f977fd41938caf21f4ecbc2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2552319654738444228, guid: f5a4d9465f977fd41938caf21f4ecbc2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2552319654738444228, guid: f5a4d9465f977fd41938caf21f4ecbc2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2552319654738444228, guid: f5a4d9465f977fd41938caf21f4ecbc2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2552319654738444228, guid: f5a4d9465f977fd41938caf21f4ecbc2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2552319654738444228, guid: f5a4d9465f977fd41938caf21f4ecbc2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2552319654738444228, guid: f5a4d9465f977fd41938caf21f4ecbc2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2552319654738444228, guid: f5a4d9465f977fd41938caf21f4ecbc2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2552319654738444228, guid: f5a4d9465f977fd41938caf21f4ecbc2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4730307741262582035, guid: f5a4d9465f977fd41938caf21f4ecbc2, type: 3}
+      propertyPath: m_Name
+      value: InimigoGoblin
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f5a4d9465f977fd41938caf21f4ecbc2, type: 3}
 --- !u!1 &1055583672
 GameObject:
   m_ObjectHideFlags: 0
@@ -132033,6 +132102,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InimigoEsqueleto (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 9006677209516110821, guid: 29b29345f11bff64db674d8ae140acf6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -132378,6 +132451,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InimigoEsqueleto (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 9006677209516110821, guid: 29b29345f11bff64db674d8ae140acf6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -132721,6 +132798,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InimigoEsqueleto (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 9006677209516110821, guid: 29b29345f11bff64db674d8ae140acf6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -132868,7 +132949,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1904987379
 GameObject:
@@ -132968,7 +133049,7 @@ RectTransform:
   - {fileID: 50001474}
   - {fileID: 1973793571}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -133256,7 +133337,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2146555321
 GameObject:
@@ -134378,6 +134459,18 @@ PrefabInstance:
     - target: {fileID: 5684267870422534912, guid: 47dc738a79c6afb4fa21d69e06335fc1, type: 3}
       propertyPath: m_Name
       value: PlayerCavaleiro
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684267870422534912, guid: 47dc738a79c6afb4fa21d69e06335fc1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5930506170596426260, guid: 47dc738a79c6afb4fa21d69e06335fc1, type: 3}
+      propertyPath: m_Size.y
+      value: 2.1397853
+      objectReference: {fileID: 0}
+    - target: {fileID: 5930506170596426260, guid: 47dc738a79c6afb4fa21d69e06335fc1, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.4404676
       objectReference: {fileID: 0}
     - target: {fileID: 8619156662695229030, guid: 47dc738a79c6afb4fa21d69e06335fc1, type: 3}
       propertyPath: healthBar

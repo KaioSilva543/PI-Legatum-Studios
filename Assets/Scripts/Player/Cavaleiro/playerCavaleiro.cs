@@ -20,7 +20,7 @@ public class PlayerCavaleiro : MonoBehaviour
 
     #region privateVar
     private Rigidbody2D rig;
-    private bool jaAtacou;
+    private bool jaAtacou, entrouC;
     private PlayerAnimC animPlayer;
     private EntradaCaverna entradacaverna;
     private float velocidadeInicial;
@@ -46,11 +46,14 @@ public class PlayerCavaleiro : MonoBehaviour
         
         vidaAtual = vidaMax;
         healthBar.VidaMaxima(vidaMax);
+
+        
     }   
 
     void Update()
     {
         EntrarCaverna();
+        MudarMaterial();
     }
 
     private void FixedUpdate()
@@ -101,7 +104,7 @@ public class PlayerCavaleiro : MonoBehaviour
             ataque= false;
         }
     }
-
+    //PLAYER ABRINDO O BAÚ
     public void InputAction(InputAction.CallbackContext context)
     {
         if (context.started && bau.Entrou)
@@ -115,9 +118,19 @@ public class PlayerCavaleiro : MonoBehaviour
         }
     }
 
+    void MudarMaterial()
+    {
+        if (entrouC)
+        {
+            spriteRenderer.material = materialC;
+        }
+        
+    }
+
     #endregion
 
     #region Acoes
+    //MOVIMENTO DO PLATER
     void Movimento()
     {
         rig.velocity = input * velocidade;
@@ -134,7 +147,7 @@ public class PlayerCavaleiro : MonoBehaviour
             _hitBox.transform.localScale = new Vector2(-1, _hitBox.transform.localScale.y);    //realiza a rotação do player
         }
     }
-
+    //ATAQUE DO PLAYER
     void Ataque()
     {
         if (ataque && !jaAtacou)
@@ -150,6 +163,7 @@ public class PlayerCavaleiro : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //PLAYER COLIDIU COM O INIMIGO
         if (collision.CompareTag("Inimigo"))
         {
             Inimigo inimigo = collision.GetComponent<Inimigo>();
@@ -160,13 +174,13 @@ public class PlayerCavaleiro : MonoBehaviour
             inimigoG.TomarDano(dano);
         }
     }
-
+    //PLAYER ENCONSTOU NA CAVERNA
     void EntrarCaverna()
     {
         if (entradacaverna.Entrou && Input.GetKeyDown(KeyCode.C))
         {
             SceneManager.LoadScene("Fase2");
-            spriteRenderer.material = materialC;
+            entrouC = true;
         }
     }
 
