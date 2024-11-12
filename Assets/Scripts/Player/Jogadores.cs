@@ -8,10 +8,10 @@ public class Jogadores : MonoBehaviour
 
     void Start()
     {
-        Cavaleiro.SetActive(false);
+        //Cavaleiro.SetActive(false);
         Mago.SetActive(false);
 
-        cameraC.SetActive(false);
+        //cameraC.SetActive(false);
         cameraM.SetActive(false);
     }
 

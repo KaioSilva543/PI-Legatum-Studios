@@ -28,12 +28,12 @@ public class Bau : MonoBehaviour
     {
         BauCheck();
     }
-
+    //ANIMAÇÃO DO BAÚ
     public void AnimBau()
     {
         anim.SetTrigger("BauAbrindo");
     }
-
+    //CHECANDO SE O PLAYER TA NO RAIO DO BAÚ
     private void BauCheck()
     {
         Collider2D CheckBau = Physics2D.OverlapCircle(Ponto.position, RaioBau, JogadorLayer);

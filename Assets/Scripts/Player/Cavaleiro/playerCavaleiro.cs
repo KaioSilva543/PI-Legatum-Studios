@@ -27,6 +27,7 @@ public class PlayerCavaleiro : MonoBehaviour
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] Transform _hitBox;
     [SerializeField] Material materialC;
+    [SerializeField] GameObject moedaPrefab;
     #endregion;
 
     Bau bau;
@@ -110,6 +111,7 @@ public class PlayerCavaleiro : MonoBehaviour
         if (context.started && bau.Entrou)
         {
             bau.AnimBau();
+            Instantiate(moedaPrefab, transform.position, transform.rotation);
             Debug.Log("Teste");
         }
         else if (context.canceled)
