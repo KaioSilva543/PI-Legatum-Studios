@@ -5,17 +5,15 @@ using UnityEngine.UI;
 
 public class BarraVida : MonoBehaviour
 {
-    Slider slider;
-    public void MudarVida(int vida)
+    [SerializeField] Slider slider;
+
+    public int vidaMax
     {
-        slider = GetComponent<Slider>();
-        slider.value = vida;
+        set { slider.maxValue = value; }
     }
 
-    public void VidaMaxima(int vida)
+    public int vidaAtual
     {
-        slider = GetComponent<Slider>();
-        slider.maxValue = vida;
-        slider.value = vida;
+        set { slider.value = value; }
     }
 }

@@ -45,8 +45,7 @@ public class PlayerCavaleiro : MonoBehaviour
         
         rig = GetComponent<Rigidbody2D>();
         
-        vidaAtual = vidaMax;
-        healthBar.VidaMaxima(vidaMax);
+        // healthBar.VidaMaxima(vidaMax);
 
         
     }   
@@ -68,7 +67,7 @@ public class PlayerCavaleiro : MonoBehaviour
     {
         Debug.Log($"Player tomou {danoInimigo} de dano");
         vidaAtual -= danoInimigo;
-        healthBar.MudarVida(vidaAtual);
+        //healthBar.MudarVida(vidaAtual);
         animPlayer.Hit();
 
         if (vidaAtual <= 0)

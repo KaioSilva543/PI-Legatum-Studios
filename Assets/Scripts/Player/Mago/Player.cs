@@ -37,7 +37,7 @@ public class Player : MonoBehaviour
         
 
         vidaAtual = vidaMax;
-        healthBar.VidaMaxima(vidaMax);
+        //healthBar.VidaMaxima(vidaMax);
     }   
 
     void Update()
@@ -56,7 +56,7 @@ public class Player : MonoBehaviour
     {
         Debug.Log($"Player tomou {danoInimigo} de dano");
         vidaAtual -= danoInimigo;
-        healthBar.MudarVida(vidaAtual);
+        //healthBar.MudarVida(vidaAtual);
         animPlayer.Hit();
 
         if (vidaAtual <= 0)

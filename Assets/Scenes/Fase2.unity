@@ -29704,6 +29704,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c30a7a956ea162d498ac3fb6450cc2e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slider: {fileID: 0}
 --- !u!114 &478909372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37768,6 +37769,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Entrou: 0
+  entrouC: 0
 --- !u!61 &1342410714
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -17,8 +17,11 @@ public class Bau : MonoBehaviour
     [SerializeField] public float RaioBau;
     [SerializeField] LayerMask JogadorLayer;
 
+    JogadorControl controles;
+
     private void Awake()
     {
+
         anim = GetComponent<Animator>();
 
         playerCavaleiro = FindObjectOfType<PlayerCavaleiro>();
@@ -27,6 +30,7 @@ public class Bau : MonoBehaviour
     private void FixedUpdate()
     {
         BauCheck();
+        //AbrirBau();
     }
     //ANIMAÇÃO DO BAÚ
     public void AnimBau()
@@ -46,6 +50,14 @@ public class Bau : MonoBehaviour
             Entrou = false;
         }
     }
+    
+    /*private void AbrirBau()
+    {
+        if (controles.Interact && Entrou)
+        {
+            anim.SetTrigger("BauAbrindo");
+        }
+    }*/
 
     private void OnDrawGizmos()
     {
