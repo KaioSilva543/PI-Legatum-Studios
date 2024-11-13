@@ -11,8 +11,8 @@ public class PlayerItens : MonoBehaviour
 
     [SerializeField] AudioClip[] sons;
     [SerializeField] AudioSource audioS;
-    [SerializeField] Text moedasTxt;
-    [SerializeField] Text pocaoTxt;
+    [SerializeField] TextMeshProUGUI moedasTxt;
+    [SerializeField] TextMeshProUGUI pocaoTxt;
 
     void Start()
     {

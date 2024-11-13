@@ -7,6 +7,8 @@ public class EntradaCaverna : MonoBehaviour
 {
     public bool Entrou;
     public bool entrouC;
+
+    [SerializeField] private JogadorMove jogador;
     void Start()
     {
         

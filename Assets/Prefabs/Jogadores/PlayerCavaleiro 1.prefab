@@ -45,10 +45,12 @@ GameObject:
   - component: {fileID: 2276553982178217882}
   - component: {fileID: 6477581875707038819}
   - component: {fileID: 6100501438045701662}
+  - component: {fileID: 1460230085521703776}
   - component: {fileID: 7073924056802174814}
   - component: {fileID: 1881309899013014602}
   - component: {fileID: 6719492683005786738}
   - component: {fileID: 3654873710421590200}
+  - component: {fileID: 288890318741853255}
   m_Layer: 6
   m_Name: PlayerCavaleiro 1
   m_TagString: Player
@@ -63,14 +65,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6972302847277918051}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -41.2, y: -20.1, z: 0}
   m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7769450581318739087}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3213392820905224943
 SpriteRenderer:
@@ -252,6 +254,102 @@ CapsuleCollider2D:
   m_Offset: {x: -0.0327453, y: 1.1858743}
   m_Size: {x: 0.86900294, y: 2.735318}
   m_Direction: 0
+--- !u!82 &1460230085521703776
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6972302847277918051}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 0.755
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &7073924056802174814
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -355,6 +453,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AtaqueInput: 0
+  Interact: 0
 --- !u!114 &3654873710421590200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -378,3 +477,22 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   vidaPlayer: {fileID: 0}
+  materialC: {fileID: 2100000, guid: a43b9f7581bc65044a8c923e2036b42c, type: 2}
+--- !u!114 &288890318741853255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6972302847277918051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 642543f07c3224e46bee60ca3002e120, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pocaoVida: 0
+  moedas: 0
+  sons: []
+  audioS: {fileID: 0}
+  moedasTxt: {fileID: 0}
+  pocaoTxt: {fileID: 0}

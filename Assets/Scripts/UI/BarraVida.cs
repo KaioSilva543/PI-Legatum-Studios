@@ -9,6 +9,7 @@ public class BarraVida : MonoBehaviour
 
     public int vidaMax
     {
+        get { return (int)slider.maxValue; }
         set { slider.maxValue = value; }
     }
 

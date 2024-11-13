@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class JogadorMove : MonoBehaviour
 {
@@ -16,10 +17,15 @@ public class JogadorMove : MonoBehaviour
     [SerializeField] private float raioAtaque;
     [SerializeField] private LayerMask layerAtaque;
 
+    [SerializeField] private BarraVida vidaPlayer;
+    [SerializeField] private SpriteRenderer sprite;
     private JogadorAnim animacoes;
     private JogadorControl controles;
-    [SerializeField] private BarraVida vidaPlayer;
     private Rigidbody2D rigidb;
+    private PlayerItens playerI;
+
+    private bool clicou;
+    
 
     #region Inicialização
     private void Start()
@@ -32,6 +38,8 @@ public class JogadorMove : MonoBehaviour
     }
     private void Awake()
     {
+        playerI = GetComponent<PlayerItens>();
+        sprite = GetComponent<SpriteRenderer>();
         rigidb = GetComponent<Rigidbody2D>();
         controles = GetComponent<JogadorControl>();
         animacoes = GetComponent<JogadorAnim>();
@@ -48,9 +56,13 @@ public class JogadorMove : MonoBehaviour
         Movimento();
         Atacar();
 
+        abrirBau();
+        usarCura();
+
     }
     #endregion
 
+    #region Vida
     public void ReceberDano(int dano)
     {
         vida -= dano;
@@ -65,6 +77,7 @@ public class JogadorMove : MonoBehaviour
             return (vida <= 0);
         }
     }
+    #endregion
 
     #region LogicaMovimento
     private void Movimento()
@@ -76,11 +89,11 @@ public class JogadorMove : MonoBehaviour
             rigidb.velocity = controles.MovimentoInput * velocidade;
             if (controles.MovimentoInput.x > 0)
             {
-                transform.right = Vector2.right * controles.MovimentoInput.x;
+                sprite.flipX = false;
             }
             else if (controles.MovimentoInput.x < 0)
             {
-                transform.right = Vector2.right * controles.MovimentoInput.x;
+                sprite.flipX = true;
             }
         }
     }
@@ -130,6 +143,33 @@ public class JogadorMove : MonoBehaviour
                 Gizmos.DrawWireSphere(ataqueArea.position, raioAtaque);
             }
         }
-        #endregion
+    #endregion
+
+
+    void abrirBau()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            clicou = true;
+        }
+        else
+        {
+            clicou = false;
+        }
+    }
+    public bool Clicou { get => clicou; set => clicou = value; }
+
+    void usarCura()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            if (playerI.PocaoVida > 0 && vida < 30)
+            {
+                vida += 5;
+                vida = Mathf.Min(vida, vidaPlayer.vidaMax);
+                vidaPlayer.vidaAtual = vida;
+            }
+        }
+    }
 }
 

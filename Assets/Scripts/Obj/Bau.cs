@@ -11,7 +11,7 @@ public class Bau : MonoBehaviour
 
     public bool Entrou;
 
-    PlayerCavaleiro playerCavaleiro;
+    JogadorMove playerCavaleiro;
 
     [SerializeField] Transform Ponto;
     [SerializeField] private float RaioBau;
@@ -29,7 +29,7 @@ public class Bau : MonoBehaviour
 
         anim = GetComponent<Animator>();
 
-        playerCavaleiro = FindObjectOfType<PlayerCavaleiro>();
+        playerCavaleiro = FindObjectOfType<JogadorMove>();
     }
 
     private void FixedUpdate()
