@@ -20,6 +20,7 @@ public class Bau : MonoBehaviour
     [SerializeField] GameObject moedaPrefab;
     [SerializeField] GameObject moedaPPrefab;
     [SerializeField] GameObject esmeraldaPrefab;
+    [SerializeField] GameObject PocaoPrefab;
 
     JogadorControl controles;
 
@@ -68,6 +69,7 @@ public class Bau : MonoBehaviour
         {
             anim.SetTrigger("BauAbrindo");
             GetComponent<BoxCollider2D>().enabled = false;
+            Instantiate(PocaoPrefab, transform.position + new Vector3(Random.Range(-1.5f, 1.2f), Random.Range(-1.5f, 1.2f), 0f), transform.rotation);
             for (int i =0; i < totalMoedas; i++)
             {
                 Instantiate(moedaPrefab, transform.position + new Vector3(Random.Range(-1.5f, 1.2f), Random.Range(-1.5f, 1.2f), 0f), transform.rotation);

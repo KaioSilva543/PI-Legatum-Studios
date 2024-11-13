@@ -24,6 +24,7 @@ public class PlayerCavaleiro : MonoBehaviour
     private bool jaAtacou, entrouC, clicou;
     private PlayerAnimC animPlayer;
     private EntradaCaverna entradacaverna;
+    private PlayerItens playerI;
     private float velocidadeInicial;
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] Transform _hitBox;
@@ -31,7 +32,6 @@ public class PlayerCavaleiro : MonoBehaviour
     
     //[SerializeField] AudioClip[] sons;
     //[SerializeField] AudioSource audioS;
-
 
     #endregion;
 
@@ -42,6 +42,7 @@ public class PlayerCavaleiro : MonoBehaviour
         //bau = FindObjectOfType<Bau>();
         bau = FindAnyObjectByType<Bau>();
         entradacaverna = FindObjectOfType<EntradaCaverna>();
+        playerI = GetComponent<PlayerItens>();
         velocidadeInicial = velocidade;
     }
     void Start()
@@ -56,6 +57,7 @@ public class PlayerCavaleiro : MonoBehaviour
         EntrarCaverna();
         MudarMaterial();
         abrirBau();
+        usarCura();
     }
 
     private void FixedUpdate()
@@ -87,6 +89,16 @@ public class PlayerCavaleiro : MonoBehaviour
         menu.GetComponentInChildren<MenuControl>().ShowGameOver();
     }
 
+    void usarCura()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            if (playerI.PocaoVida > 0 && vidaAtual < 30)
+            {
+                vidaAtual += 5;
+            }
+        }
+    }
 
     #endregion
 

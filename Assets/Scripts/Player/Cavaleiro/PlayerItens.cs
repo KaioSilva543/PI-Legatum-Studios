@@ -1,18 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerItens : MonoBehaviour
 {
-    //[SerializeField] private int PocaoVida;
+    [SerializeField] private int pocaoVida;
     [SerializeField] private int moedas;
-    //[SerializeField] private int PocaoVida;
-    //[SerializeField] private int PocaoVida;
 
     [SerializeField] AudioClip[] sons;
     [SerializeField] AudioSource audioS;
     [SerializeField] Text moedasTxt;
+    [SerializeField] Text pocaoTxt;
 
     void Start()
     {
@@ -26,11 +26,12 @@ public class PlayerItens : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //if (collision.gameObject.tag=="PocaoVida")
-        //{
-        //    PocaoVida++;
-        //    Destroy(collision.gameObject);
-        //}
+        if (collision.gameObject.tag == "PocaoVida")
+        {
+            pocaoVida++;
+            Destroy(collision.gameObject);
+            pocaoTxt.text = pocaoVida.ToString();
+        }
         if (collision.gameObject.tag == "Moeda")
         {
             moedas++;
@@ -41,5 +42,5 @@ public class PlayerItens : MonoBehaviour
         }
     }
 
-    //public int pocaoVida { get => PocaoVida; set => PocaoVida = value; }
+    public int PocaoVida { get => pocaoVida; set => pocaoVida = value; }
 }

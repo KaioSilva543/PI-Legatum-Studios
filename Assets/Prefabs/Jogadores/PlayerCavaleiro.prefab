@@ -424,7 +424,7 @@ MonoBehaviour:
   input: {x: 0, y: 0}
   velocidade: 10
   vidaAtual: 0
-  vidaMax: 31
+  vidaMax: 30
   dano: 5
   ataque: 0
   Abriu: 0
@@ -553,7 +553,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 642543f07c3224e46bee60ca3002e120, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pocaoVida: 0
   moedas: 0
   sons:
   - {fileID: 8300000, guid: 2c5e3c32fca9fdf4298a6d8d5d54524d, type: 3}
   audioS: {fileID: 1633034813181988589}
+  moedasTxt: {fileID: 0}
+  pocaoTxt: {fileID: 0}
