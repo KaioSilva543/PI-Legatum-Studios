@@ -5,6 +5,10 @@ using UnityEngine;
 public class InimEsqueleto : MonoBehaviour
 {
     [SerializeField] private Transform jogador;
+    [SerializeField] GameObject moedaPrefab;
+    [SerializeField] GameObject moedaPPrefab;
+    [SerializeField] GameObject PocaoPrefab;
+    [SerializeField] private int totalMoedas;
     [SerializeField] private float velocidade;
     [SerializeField] private float distanciaMin;
     [SerializeField] int vida;
@@ -58,7 +62,13 @@ public class InimEsqueleto : MonoBehaviour
             rb.velocity = Vector2.zero;
             enabled = false;
             animator.SetBool("Morto", true);
-            
+            Instantiate(PocaoPrefab, transform.position + new Vector3(Random.Range(-1.5f, 1.2f), Random.Range(-1.5f, 1.2f), 0f), transform.rotation);
+            for (int i = 0; i < totalMoedas; i++)
+            {
+                Instantiate(moedaPrefab, transform.position + new Vector3(Random.Range(-1.5f, 1.2f), Random.Range(-1.5f, 1.2f), 0f), transform.rotation);
+                Instantiate(moedaPPrefab, transform.position + new Vector3(Random.Range(-1.5f, 1.2f), Random.Range(-1.5f, 1.2f), 0f), transform.rotation);
+            }
+
             foreach (var collider in GetComponents<Collider2D>())
             {
                 collider.enabled = false;
