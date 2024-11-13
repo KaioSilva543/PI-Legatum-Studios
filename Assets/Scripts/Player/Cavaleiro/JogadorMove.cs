@@ -16,6 +16,7 @@ public class JogadorMove : MonoBehaviour
     [SerializeField] private Transform ataqueArea;
     [SerializeField] private float raioAtaque;
     [SerializeField] private LayerMask layerAtaque;
+    private Vector3 posicaoInicalAtaque;
 
     [SerializeField] private BarraVida vidaPlayer;
     [SerializeField] private SpriteRenderer sprite;
@@ -35,6 +36,8 @@ public class JogadorMove : MonoBehaviour
 
         vidaPlayer.vidaMax = vida;
         vidaPlayer.vidaAtual = vida;
+
+        posicaoInicalAtaque = ataqueArea.localPosition;
     }
     private void Awake()
     {
@@ -90,10 +93,12 @@ public class JogadorMove : MonoBehaviour
             if (controles.MovimentoInput.x > 0)
             {
                 sprite.flipX = false;
+                ataqueArea.localPosition = posicaoInicalAtaque;
             }
             else if (controles.MovimentoInput.x < 0)
             {
                 sprite.flipX = true;
+                ataqueArea.localPosition = new Vector3(-posicaoInicalAtaque.x, posicaoInicalAtaque.y, posicaoInicalAtaque.z);
             }
         }
     }
