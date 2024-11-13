@@ -14,8 +14,12 @@ public class Bau : MonoBehaviour
     PlayerCavaleiro playerCavaleiro;
 
     [SerializeField] Transform Ponto;
-    [SerializeField] public float RaioBau;
+    [SerializeField] private float RaioBau;
+    [SerializeField] private int totalMoedas;
     [SerializeField] LayerMask JogadorLayer;
+    [SerializeField] GameObject moedaPrefab;
+    [SerializeField] GameObject moedaPPrefab;
+    [SerializeField] GameObject esmeraldaPrefab;
 
     JogadorControl controles;
 
@@ -32,10 +36,9 @@ public class Bau : MonoBehaviour
         BauCheck();
         //AbrirBau();
     }
-    //ANIMAÇÃO DO BAÚ
-    public void AnimBau()
+    private void Update()
     {
-        anim.SetTrigger("BauAbrindo");
+        bauTeste();
     }
     //CHECANDO SE O PLAYER TA NO RAIO DO BAÚ
     private void BauCheck()
@@ -58,6 +61,21 @@ public class Bau : MonoBehaviour
             anim.SetTrigger("BauAbrindo");
         }
     }*/
+
+    void bauTeste()
+    {
+        if (playerCavaleiro.Clicou)
+        {
+            anim.SetTrigger("BauAbrindo");
+            GetComponent<BoxCollider2D>().enabled = false;
+            for (int i =0; i < totalMoedas; i++)
+            {
+                Instantiate(moedaPrefab, transform.position + new Vector3(Random.Range(-1.5f, 1.2f), Random.Range(-1.5f, 1.2f), 0f), transform.rotation);
+                Instantiate(moedaPPrefab, transform.position + new Vector3(Random.Range(-1.5f, 1.2f), Random.Range(-1.5f, 1.2f), 0f), transform.rotation);
+                Instantiate(esmeraldaPrefab, transform.position + new Vector3(Random.Range(-1.5f, 1.2f), Random.Range(-1.5f, 1.2f), 0f), transform.rotation);
+            }
+        }
+    }
 
     private void OnDrawGizmos()
     {

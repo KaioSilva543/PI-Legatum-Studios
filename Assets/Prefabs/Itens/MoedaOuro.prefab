@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1408343340133104640}
   m_Layer: 0
   m_Name: MoedaOuro
-  m_TagString: Itens
+  m_TagString: Moeda
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 1117751152, guid: 877706dc9ddf53a4c93f0740838d37cd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

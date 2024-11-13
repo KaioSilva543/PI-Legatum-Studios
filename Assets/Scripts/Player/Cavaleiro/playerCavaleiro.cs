@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
+
 public class PlayerCavaleiro : MonoBehaviour
 {
     #region publicVar
@@ -20,14 +21,18 @@ public class PlayerCavaleiro : MonoBehaviour
 
     #region privateVar
     private Rigidbody2D rig;
-    private bool jaAtacou, entrouC;
+    private bool jaAtacou, entrouC, clicou;
     private PlayerAnimC animPlayer;
     private EntradaCaverna entradacaverna;
     private float velocidadeInicial;
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] Transform _hitBox;
     [SerializeField] Material materialC;
-    [SerializeField] GameObject moedaPrefab;
+    
+    //[SerializeField] AudioClip[] sons;
+    //[SerializeField] AudioSource audioS;
+
+
     #endregion;
 
     Bau bau;
@@ -42,18 +47,15 @@ public class PlayerCavaleiro : MonoBehaviour
     void Start()
     {
         animPlayer = GetComponent<PlayerAnimC>();
-        
         rig = GetComponent<Rigidbody2D>();
-        
         // healthBar.VidaMaxima(vidaMax);
-
-        
     }   
 
     void Update()
     {
         EntrarCaverna();
         MudarMaterial();
+        abrirBau();
     }
 
     private void FixedUpdate()
@@ -84,6 +86,8 @@ public class PlayerCavaleiro : MonoBehaviour
         GetComponent<PlayerInput>().enabled = false;
         menu.GetComponentInChildren<MenuControl>().ShowGameOver();
     }
+
+
     #endregion
 
     #region Input
@@ -109,13 +113,11 @@ public class PlayerCavaleiro : MonoBehaviour
     {
         if (context.started && bau.Entrou)
         {
-            bau.AnimBau();
-            Instantiate(moedaPrefab, transform.position, transform.rotation);
-            Debug.Log("Teste");
+            
         }
         else if (context.canceled)
         {
-            Abriu = false;
+
         }
     }
 
@@ -175,6 +177,18 @@ public class PlayerCavaleiro : MonoBehaviour
             inimigoG.TomarDano(dano);
         }
     }
+    //ABRIR BAU
+    void abrirBau()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            clicou = true;
+        }
+        else
+        {
+            clicou = false;
+        }
+    }
     //PLAYER ENCONSTOU NA CAVERNA
     void EntrarCaverna()
     {
@@ -193,4 +207,5 @@ public class PlayerCavaleiro : MonoBehaviour
     }
     #endregion
 
+    public bool Clicou { get => clicou; set => clicou = value; }
 }
