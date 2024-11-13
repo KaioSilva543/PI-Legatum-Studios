@@ -9,6 +9,10 @@ public class AtaqueInimigo : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.CompareTag("Player"))
+        {
+
+        }
         if (collision.GetComponent<Player>() != null)
         {
             collision.GetComponent<Player>().DanoTomado(dano);

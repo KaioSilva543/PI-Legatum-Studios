@@ -43,11 +43,12 @@ public class PlayerCavaleiro : MonoBehaviour
         bau = FindAnyObjectByType<Bau>();
         entradacaverna = FindObjectOfType<EntradaCaverna>();
         playerI = GetComponent<PlayerItens>();
+        animPlayer = GetComponent<PlayerAnimC>();
         velocidadeInicial = velocidade;
     }
     void Start()
     {
-        animPlayer = GetComponent<PlayerAnimC>();
+        
         rig = GetComponent<Rigidbody2D>();
         // healthBar.VidaMaxima(vidaMax);
     }   
@@ -172,7 +173,6 @@ public class PlayerCavaleiro : MonoBehaviour
             animPlayer.Ataque();
             velocidade = 0;
             StartCoroutine(Ataqueduracao());
-
         }
     }
 
