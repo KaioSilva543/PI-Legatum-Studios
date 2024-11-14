@@ -53,6 +53,15 @@ public partial class @PlayerController: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Cura"",
+                    ""type"": ""Button"",
+                    ""id"": ""1121f1c3-cc5c-443a-b268-76b11da75f98"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -212,23 +221,23 @@ public partial class @PlayerController: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""90d2a0a6-6b19-4961-97b2-5ffc907f5596"",
+                    ""id"": ""79697f69-c105-42f3-a677-9e32b187992d"",
                     ""path"": ""<Keyboard>/f"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Interagir"",
+                    ""action"": ""Cura"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""68b62b04-e1ec-40ae-bd46-8893f0180af0"",
+                    ""id"": ""d985ec0c-0d23-4ec6-aefd-03cff026fc32"",
                     ""path"": ""<Gamepad>/buttonNorth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Interagir"",
+                    ""action"": ""Cura"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -242,6 +251,7 @@ public partial class @PlayerController: IInputActionCollection2, IDisposable
         m_Player_Movimento = m_Player.FindAction("Movimento", throwIfNotFound: true);
         m_Player_Ataque = m_Player.FindAction("Ataque", throwIfNotFound: true);
         m_Player_Interagir = m_Player.FindAction("Interagir", throwIfNotFound: true);
+        m_Player_Cura = m_Player.FindAction("Cura", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -306,6 +316,7 @@ public partial class @PlayerController: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Movimento;
     private readonly InputAction m_Player_Ataque;
     private readonly InputAction m_Player_Interagir;
+    private readonly InputAction m_Player_Cura;
     public struct PlayerActions
     {
         private @PlayerController m_Wrapper;
@@ -313,6 +324,7 @@ public partial class @PlayerController: IInputActionCollection2, IDisposable
         public InputAction @Movimento => m_Wrapper.m_Player_Movimento;
         public InputAction @Ataque => m_Wrapper.m_Player_Ataque;
         public InputAction @Interagir => m_Wrapper.m_Player_Interagir;
+        public InputAction @Cura => m_Wrapper.m_Player_Cura;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -331,6 +343,9 @@ public partial class @PlayerController: IInputActionCollection2, IDisposable
             @Interagir.started += instance.OnInteragir;
             @Interagir.performed += instance.OnInteragir;
             @Interagir.canceled += instance.OnInteragir;
+            @Cura.started += instance.OnCura;
+            @Cura.performed += instance.OnCura;
+            @Cura.canceled += instance.OnCura;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -344,6 +359,9 @@ public partial class @PlayerController: IInputActionCollection2, IDisposable
             @Interagir.started -= instance.OnInteragir;
             @Interagir.performed -= instance.OnInteragir;
             @Interagir.canceled -= instance.OnInteragir;
+            @Cura.started -= instance.OnCura;
+            @Cura.performed -= instance.OnCura;
+            @Cura.canceled -= instance.OnCura;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -366,5 +384,6 @@ public partial class @PlayerController: IInputActionCollection2, IDisposable
         void OnMovimento(InputAction.CallbackContext context);
         void OnAtaque(InputAction.CallbackContext context);
         void OnInteragir(InputAction.CallbackContext context);
+        void OnCura(InputAction.CallbackContext context);
     }
 }

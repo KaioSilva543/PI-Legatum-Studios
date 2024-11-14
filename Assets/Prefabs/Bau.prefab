@@ -65,7 +65,7 @@ Transform:
   m_Children:
   - {fileID: 3394984461541334419}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5560455359914849354
 SpriteRenderer:
@@ -200,6 +200,11 @@ MonoBehaviour:
   Entrou: 0
   Ponto: {fileID: 3394984461541334419}
   RaioBau: 1.79
+  totalMoedas: 0
   JogadorLayer:
     serializedVersion: 2
     m_Bits: 64
+  moedaPrefab: {fileID: 0}
+  moedaPPrefab: {fileID: 0}
+  esmeraldaPrefab: {fileID: 0}
+  PocaoPrefab: {fileID: 0}

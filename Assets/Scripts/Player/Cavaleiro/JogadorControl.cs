@@ -9,6 +9,7 @@ public class JogadorControl : MonoBehaviour, PlayerController.IPlayerActions
     public Vector2 MovimentoInput { get; private set; }
     public bool AtaqueInput;
     public bool Interact;
+    public bool Cura { get; private set; }
 
  
     private void OnEnable()
@@ -51,6 +52,18 @@ public class JogadorControl : MonoBehaviour, PlayerController.IPlayerActions
         if (context.canceled)
         {
             Interact = false;
+        }
+    }
+
+    public void OnCura(InputAction.CallbackContext context)
+    {
+      if (context.started)
+        {
+            Cura = true;
+        }
+      if (context.canceled)
+        {
+            Cura = false;
         }
     }
 }

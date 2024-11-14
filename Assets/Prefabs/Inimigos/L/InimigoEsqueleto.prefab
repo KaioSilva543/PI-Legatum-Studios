@@ -215,7 +215,7 @@ Transform:
   m_Children:
   - {fileID: 6144322909336621550}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &8021909762086581489
 Rigidbody2D:
@@ -410,6 +410,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jogador: {fileID: 0}
+  moedaPrefab: {fileID: 536883524709077776, guid: 273cad41f861c9b40afd8ba7e9646a56, type: 3}
+  moedaPPrefab: {fileID: 996011743191247200, guid: 630d88d81cb4e424e81d7410f0730f29, type: 3}
+  PocaoPrefab: {fileID: 5828669692545708671, guid: d10d7318cd8dbc14bb5aa394730e9d46, type: 3}
+  totalMoedas: 2
   velocidade: 1.6
   distanciaMin: 1.21
   vida: 10

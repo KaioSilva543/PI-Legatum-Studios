@@ -6,6 +6,7 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 public class JogadorMove : MonoBehaviour
 {
     [SerializeField] private int vida;
+    public int Vida { get { return vida; } set {  vida = value; } } 
 
     [SerializeField] private float velocidade;
     [SerializeField] private float velocidadeInicial;
@@ -56,11 +57,11 @@ public class JogadorMove : MonoBehaviour
             rigidb.velocity = Vector2.zero;
             return;
         }
+        vidaPlayer.vidaAtual = vida;
         Movimento();
         Atacar();
 
         abrirBau();
-        usarCura();
 
     }
     #endregion
@@ -163,18 +164,5 @@ public class JogadorMove : MonoBehaviour
         }
     }
     public bool Clicou { get => clicou; set => clicou = value; }
-
-    void usarCura()
-    {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            if (playerI.PocaoVida > 0 && vida < 30)
-            {
-                vida += 5;
-                vida = Mathf.Min(vida, vidaPlayer.vidaMax);
-                vidaPlayer.vidaAtual = vida;
-            }
-        }
-    }
 }
 

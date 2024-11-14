@@ -31,6 +31,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Cura",
+                    "type": "Button",
+                    "id": "1121f1c3-cc5c-443a-b268-76b11da75f98",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -190,23 +199,23 @@
                 },
                 {
                     "name": "",
-                    "id": "90d2a0a6-6b19-4961-97b2-5ffc907f5596",
+                    "id": "79697f69-c105-42f3-a677-9e32b187992d",
                     "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Interagir",
+                    "action": "Cura",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "68b62b04-e1ec-40ae-bd46-8893f0180af0",
+                    "id": "d985ec0c-0d23-4ec6-aefd-03cff026fc32",
                     "path": "<Gamepad>/buttonNorth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Interagir",
+                    "action": "Cura",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

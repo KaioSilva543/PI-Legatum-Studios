@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Experimental.GraphView.GraphView;
+using UnityEngine.Video;
 
 public class PlayerItens : MonoBehaviour
 {
@@ -14,14 +16,19 @@ public class PlayerItens : MonoBehaviour
     [SerializeField] TextMeshProUGUI moedasTxt;
     [SerializeField] TextMeshProUGUI pocaoTxt;
 
+    private JogadorControl con;
+    private JogadorMove Jogador;
+    [SerializeField] BarraVida vida;
+
     void Start()
     {
-        
+        con = GetComponent<JogadorControl>();
+        Jogador = GetComponent<JogadorMove>();
     }
 
     void Update()
     {
-        
+        usarCura();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -39,6 +46,21 @@ public class PlayerItens : MonoBehaviour
             audioS.clip = sons[0];
             audioS.Play();
             Destroy(collision.gameObject);
+        }
+    }
+
+    void usarCura()
+    {
+        if (con.Cura && PocaoVida > 0 && Jogador.Vida < 30)
+        {
+            if (!Jogador.Morte)
+            {
+                Jogador.Vida += 5;
+                pocaoVida -= 1;
+                pocaoTxt.text = pocaoVida.ToString();
+                Jogador.Vida = Mathf.Min(Jogador.Vida, vida.vidaMax);
+                vida.vidaAtual = Jogador.Vida;
+            }
         }
     }
 

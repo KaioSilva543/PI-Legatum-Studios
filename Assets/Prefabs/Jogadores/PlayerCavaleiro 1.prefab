@@ -72,7 +72,7 @@ Transform:
   m_Children:
   - {fileID: 7769450581318739087}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3213392820905224943
 SpriteRenderer:
@@ -466,7 +466,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce333169ea92e7c4398a68c7b5a9253e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vida: 5
+  vida: 30
   velocidade: 5.5
   velocidadeInicial: 0
   dano: 2
@@ -477,7 +477,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   vidaPlayer: {fileID: 0}
-  materialC: {fileID: 2100000, guid: a43b9f7581bc65044a8c923e2036b42c, type: 2}
+  sprite: {fileID: 0}
 --- !u!114 &288890318741853255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -492,7 +492,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pocaoVida: 0
   moedas: 0
-  sons: []
-  audioS: {fileID: 0}
+  sons:
+  - {fileID: 8300000, guid: 2c5e3c32fca9fdf4298a6d8d5d54524d, type: 3}
+  audioS: {fileID: 1460230085521703776}
   moedasTxt: {fileID: 0}
   pocaoTxt: {fileID: 0}
+  vida: {fileID: 0}
