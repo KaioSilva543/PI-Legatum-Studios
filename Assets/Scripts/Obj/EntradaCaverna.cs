@@ -6,9 +6,7 @@ using UnityEngine.SceneManagement;
 public class EntradaCaverna : MonoBehaviour
 {
     public bool Entrou;
-    public bool entrouC;
-
-    [SerializeField] private JogadorMove jogador;
+    [SerializeField] private JogadorControl controles;
     void Start()
     {
         
@@ -18,11 +16,9 @@ public class EntradaCaverna : MonoBehaviour
     void Update()
     {
         //BoxCollider2D teste = Physics2D.OverlapBox(ponto.position, testeRaio, teste1);
-        if (Entrou && Input.GetKeyDown(KeyCode.E))
+        if (Entrou && controles.Interact)
         {
-            print("foi");
             SceneManager.LoadScene("Fase2");
-            entrouC = true;
         }
     }
 

@@ -61,7 +61,6 @@ public class JogadorMove : MonoBehaviour
         Movimento();
         Atacar();
 
-        abrirBau();
 
     }
     #endregion
@@ -130,6 +129,12 @@ public class JogadorMove : MonoBehaviour
             if (inimigo != null)
             {
                 inimigo.ReceberDano(dano);
+                
+            }
+            Caixote caixote = colliderInimigo.GetComponent<Caixote>();
+            if (caixote != null)
+            {
+                caixote.caixoteDano();
             }
         }
     }
@@ -150,19 +155,5 @@ public class JogadorMove : MonoBehaviour
             }
         }
     #endregion
-
-
-    void abrirBau()
-    {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            clicou = true;
-        }
-        else
-        {
-            clicou = false;
-        }
-    }
-    public bool Clicou { get => clicou; set => clicou = value; }
 }
 

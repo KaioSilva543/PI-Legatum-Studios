@@ -15,7 +15,7 @@ public class Caixote : MonoBehaviour
     {
         print("quebrou");
         anim.SetTrigger("Caixote");
+        GetComponent<BoxCollider2D>().enabled = false;
         Instantiate(ChavePrefab, transform.position, transform.rotation);
-        Destroy(gameObject);
     }
 }
