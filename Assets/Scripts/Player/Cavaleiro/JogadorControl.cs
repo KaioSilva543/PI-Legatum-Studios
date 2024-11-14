@@ -11,7 +11,6 @@ public class JogadorControl : MonoBehaviour, PlayerController.IPlayerActions
     public bool Interact;
     public bool Cura { get; private set; }
 
- 
     private void OnEnable()
     {
         playerControls = new PlayerController();

@@ -200,11 +200,11 @@ MonoBehaviour:
   Entrou: 0
   Ponto: {fileID: 3394984461541334419}
   RaioBau: 1.79
-  totalMoedas: 0
+  totalMoedas: 5
   JogadorLayer:
     serializedVersion: 2
     m_Bits: 64
-  moedaPrefab: {fileID: 0}
-  moedaPPrefab: {fileID: 0}
-  esmeraldaPrefab: {fileID: 0}
-  PocaoPrefab: {fileID: 0}
+  moedaPrefab: {fileID: 536883524709077776, guid: 273cad41f861c9b40afd8ba7e9646a56, type: 3}
+  moedaPPrefab: {fileID: 996011743191247200, guid: 630d88d81cb4e424e81d7410f0730f29, type: 3}
+  esmeraldaPrefab: {fileID: 2698010076022802415, guid: ed7f6d0f45cf57e48ad77d0c0b586d4c, type: 3}
+  PocaoPrefab: {fileID: 5828669692545708671, guid: d10d7318cd8dbc14bb5aa394730e9d46, type: 3}

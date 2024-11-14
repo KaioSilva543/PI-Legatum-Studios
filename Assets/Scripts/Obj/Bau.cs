@@ -9,7 +9,8 @@ public class Bau : MonoBehaviour
 
     public static Bau bau;
 
-    public bool Entrou;
+    public bool Entrou, podeAbrir;
+    
 
     JogadorMove playerCavaleiro;
 
@@ -26,59 +27,40 @@ public class Bau : MonoBehaviour
 
     private void Awake()
     {
-
+        controles = FindObjectOfType<JogadorControl>();
         anim = GetComponent<Animator>();
 
         playerCavaleiro = FindObjectOfType<JogadorMove>();
     }
-
-    private void FixedUpdate()
+    private void Start()
     {
-        BauCheck();
-        //AbrirBau();
+        podeAbrir = true;
     }
     private void Update()
     {
-        bauTeste();
+        BauCheck();
     }
-    //CHECANDO SE O PLAYER TA NO RAIO DO BAÚ
+
     private void BauCheck()
     {
         Collider2D CheckBau = Physics2D.OverlapCircle(Ponto.position, RaioBau, JogadorLayer);
         if (CheckBau != null)
         {
-            Entrou = true;
-        }
-        else
-        {
-            Entrou = false;
-        }
-    }
-    
-    /*private void AbrirBau()
-    {
-        if (controles.Interact && Entrou)
-        {
-            anim.SetTrigger("BauAbrindo");
-        }
-    }*/
-
-    void bauTeste()
-    {
-        if (playerCavaleiro.Clicou)
-        {
-            anim.SetTrigger("BauAbrindo");
-            GetComponent<BoxCollider2D>().enabled = false;
-            Instantiate(PocaoPrefab, transform.position + new Vector3(Random.Range(-1.5f, 1.2f), Random.Range(-1.5f, 1.2f), 0f), transform.rotation);
-            for (int i =0; i < totalMoedas; i++)
+            if (controles.Interact && podeAbrir)
             {
-                Instantiate(moedaPrefab, transform.position + new Vector3(Random.Range(-1.5f, 1.2f), Random.Range(-1.5f, 1.2f), 0f), transform.rotation);
-                Instantiate(moedaPPrefab, transform.position + new Vector3(Random.Range(-1.5f, 1.2f), Random.Range(-1.5f, 1.2f), 0f), transform.rotation);
-                Instantiate(esmeraldaPrefab, transform.position + new Vector3(Random.Range(-1.5f, 1.2f), Random.Range(-1.5f, 1.2f), 0f), transform.rotation);
+                podeAbrir = false;
+                anim.SetTrigger("BauAbrindo");
+                GetComponent<BoxCollider2D>().enabled = false;
+                Instantiate(PocaoPrefab, transform.position + new Vector3(Random.Range(-1.5f, 1.2f), Random.Range(-1.5f, 1.2f), 0f), transform.rotation);
+                for (int i = 0; i < totalMoedas; i++)
+                {
+                    Instantiate(moedaPrefab, transform.position + new Vector3(Random.Range(-1.5f, 1.2f), Random.Range(-1.5f, 1.2f), 0f), transform.rotation);
+                    Instantiate(moedaPPrefab, transform.position + new Vector3(Random.Range(-1.5f, 1.2f), Random.Range(-1.5f, 1.2f), 0f), transform.rotation);
+                    Instantiate(esmeraldaPrefab, transform.position + new Vector3(Random.Range(-1.5f, 1.2f), Random.Range(-1.5f, 1.2f), 0f), transform.rotation);
+                }
             }
         }
     }
-
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(Ponto.position, RaioBau);
