@@ -10,11 +10,13 @@ public class PlayerItens : MonoBehaviour
 {
     [SerializeField] private int pocaoVida;
     [SerializeField] private int moedas;
+    [SerializeField] private int Chave;
 
     [SerializeField] AudioClip[] sons;
     [SerializeField] AudioSource audioS;
     [SerializeField] TextMeshProUGUI moedasTxt;
     [SerializeField] TextMeshProUGUI pocaoTxt;
+    public GameObject chave;
 
     private JogadorControl con;
     private JogadorMove Jogador;
@@ -47,6 +49,12 @@ public class PlayerItens : MonoBehaviour
             audioS.Play();
             Destroy(collision.gameObject);
         }
+        if (collision.gameObject.tag == "Chave")
+        {
+            Chave++;
+            chave.SetActive(true);
+            Destroy(collision.gameObject);
+        }
     }
 
     void usarCura()
@@ -65,4 +73,5 @@ public class PlayerItens : MonoBehaviour
     }
 
     public int PocaoVida { get => pocaoVida; set => pocaoVida = value; }
+    public int chave1 { get => Chave; set => Chave = value; }
 }

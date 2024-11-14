@@ -10,6 +10,7 @@ TagManager:
   - Itens
   - PocaoVida
   - Moeda
+  - Chave
   layers:
   - Default
   - TransparentFX

@@ -140,9 +140,7 @@ public class PlayerCavaleiro : MonoBehaviour
         {
             spriteRenderer.material = materialC;
         }
-        
     }
-
     #endregion
 
     #region Acoes
