@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class Jogadores : MonoBehaviour
 {
-    [SerializeField] private GameObject Cavaleiro, Mago, cameraC, cameraM;
+    [SerializeField] private GameObject Cavaleiro,cameraC;
 
     void Start()
     {
         //Cavaleiro.SetActive(false);
-        Mago.SetActive(false);
+        //Mago.SetActive(false);
 
         //cameraC.SetActive(false);
-        cameraM.SetActive(false);
+        //cameraM.SetActive(false);
     }
 
     void Update()
@@ -29,8 +29,8 @@ public class Jogadores : MonoBehaviour
         }
         else if (TelaSelect.Selecter == 2)
         {
-            Mago.SetActive(true);
-            cameraM.SetActive(true);
+            //Mago.SetActive(true);
+            //cameraM.SetActive(true);
         }
     }
 }

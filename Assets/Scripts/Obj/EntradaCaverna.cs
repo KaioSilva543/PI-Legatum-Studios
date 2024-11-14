@@ -18,7 +18,7 @@ public class EntradaCaverna : MonoBehaviour
     void Update()
     {
         //BoxCollider2D teste = Physics2D.OverlapBox(ponto.position, testeRaio, teste1);
-        if (Entrou && Input.GetKeyDown(KeyCode.C))
+        if (Entrou && Input.GetKeyDown(KeyCode.E))
         {
             print("foi");
             SceneManager.LoadScene("Fase2");

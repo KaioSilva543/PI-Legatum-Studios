@@ -25,6 +25,7 @@ public class PlayerCavaleiro : MonoBehaviour
     private PlayerAnimC animPlayer;
     private EntradaCaverna entradacaverna;
     private PlayerItens playerI;
+    private Caixote caixote;
     private float velocidadeInicial;
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] Transform _hitBox;
@@ -44,6 +45,7 @@ public class PlayerCavaleiro : MonoBehaviour
         entradacaverna = FindObjectOfType<EntradaCaverna>();
         playerI = GetComponent<PlayerItens>();
         animPlayer = GetComponent<PlayerAnimC>();
+        caixote = FindObjectOfType<Caixote>();
         velocidadeInicial = velocidade;
     }
     void Start()
@@ -185,6 +187,8 @@ public class PlayerCavaleiro : MonoBehaviour
 
             inimigoGoblin inimigoG = collision.GetComponent<inimigoGoblin>();
             inimigoG.TomarDano(dano);
+
+            caixote.caixoteDano();
         }
     }
     //ABRIR BAU
