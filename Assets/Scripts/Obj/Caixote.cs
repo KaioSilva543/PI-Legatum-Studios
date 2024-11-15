@@ -17,5 +17,11 @@ public class Caixote : MonoBehaviour
         anim.SetTrigger("Caixote");
         GetComponent<BoxCollider2D>().enabled = false;
         Instantiate(ChavePrefab, transform.position, transform.rotation);
+        Invoke("destruir", 1.1f);
+    }
+
+    void destruir()
+    {
+        Destroy(gameObject);
     }
 }

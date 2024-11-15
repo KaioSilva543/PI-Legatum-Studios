@@ -7,6 +7,8 @@ public class Porta : MonoBehaviour
     [SerializeField] Transform Ponto;
     [SerializeField] private float RaioPorta;
     [SerializeField] LayerMask JogadorLayer;
+    [SerializeField] GameObject canva;
+    [SerializeField] GameObject texto1;
 
     private Animator anim;
 
@@ -26,7 +28,7 @@ public class Porta : MonoBehaviour
     
     void Update()
     {
-        
+        DestruirTxt();
     }
     private void FixedUpdate()
     {
@@ -47,6 +49,24 @@ public class Porta : MonoBehaviour
                 print("teste");
             }
         }
+        if (pItens.chave1 <= 0 && controles.Interact)
+        {
+            canva.SetActive(true);
+            Invoke("sumirTexto", 2f);
+        }
+    }
+    //DESTRUIR O TEXTO
+    void DestruirTxt()
+    {
+        if (pItens.chave1 > 0)
+        {
+            Destroy(texto1);
+        }
+    }
+    //SUMIR O TEXTO
+    void sumirTexto()
+    {
+        canva.SetActive(false);
     }
 
     private void OnDrawGizmos()
