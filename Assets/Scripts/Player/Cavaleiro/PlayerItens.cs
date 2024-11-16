@@ -31,6 +31,7 @@ public class PlayerItens : MonoBehaviour
     void Update()
     {
         usarCura();
+        Atacou();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -70,6 +71,19 @@ public class PlayerItens : MonoBehaviour
                 vida.vidaAtual = Jogador.Vida;
             }
         }
+    }
+
+    void Atacou()
+    {
+        if (con.AtaqueInput)
+        {
+            Invoke("atacouSom", 0.4f);
+        }
+    }
+    void atacouSom()
+    {
+        audioS.clip = sons[1];
+        audioS.Play();
     }
 
     public int PocaoVida { get => pocaoVida; set => pocaoVida = value; }
