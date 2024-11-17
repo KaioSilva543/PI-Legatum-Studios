@@ -72,7 +72,7 @@ Transform:
   m_Children:
   - {fileID: 7769450581318739087}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3213392820905224943
 SpriteRenderer:
@@ -206,7 +206,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.011374831, y: -0.26357532}
+  m_Offset: {x: -0.011374831, y: -0.27844477}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.49999994, y: 0.15}
@@ -217,7 +217,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.0227497, y: 0.26784638}
+  m_Size: {x: 1.0227497, y: 0.23810768}
   m_EdgeRadius: 0
 --- !u!70 &6100501438045701662
 CapsuleCollider2D:
@@ -495,6 +495,7 @@ MonoBehaviour:
   Chave: 0
   sons:
   - {fileID: 8300000, guid: 2c5e3c32fca9fdf4298a6d8d5d54524d, type: 3}
+  - {fileID: 8300000, guid: 114d07c27fe18c6459de7b4770f12945, type: 3}
   audioS: {fileID: 1460230085521703776}
   moedasTxt: {fileID: 0}
   pocaoTxt: {fileID: 0}

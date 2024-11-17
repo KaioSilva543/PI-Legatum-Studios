@@ -8,6 +8,8 @@ public class InimEsqueleto : MonoBehaviour
     [SerializeField] GameObject moedaPrefab;
     [SerializeField] GameObject moedaPPrefab;
     [SerializeField] GameObject PocaoPrefab;
+    [SerializeField] AudioClip[] sons;
+    [SerializeField] AudioSource audioS;
     [SerializeField] private int totalMoedas;
     [SerializeField] private float velocidade;
     [SerializeField] private float distanciaMin;
@@ -58,6 +60,8 @@ public class InimEsqueleto : MonoBehaviour
         inimigoVida.VidaAtual = vida;
         if (vida <= 0) {
             print("Morreu");
+            audioS.clip = sons[0];
+            audioS.Play();
             inimigoVida.Esconder();
             rb.velocity = Vector2.zero;
             enabled = false;

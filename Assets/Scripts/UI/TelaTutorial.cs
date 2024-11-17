@@ -5,6 +5,7 @@ using UnityEngine;
 public class TelaTutorial : MonoBehaviour
 {
     [SerializeField] GameObject ObjTutorial;
+    [SerializeField] AudioSource audioSo;
     void Start()
     {
         
@@ -18,6 +19,7 @@ public class TelaTutorial : MonoBehaviour
 
     public void FecharTutorial()
     {
+        audioSo.Play();
         ObjTutorial.SetActive(false);
     }
 }

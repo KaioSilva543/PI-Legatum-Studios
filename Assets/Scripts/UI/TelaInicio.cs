@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class TelaInicio : MonoBehaviour
 {
-    
+    [SerializeField] AudioSource audioS;
     void Start()
     {
         
@@ -20,10 +20,12 @@ public class TelaInicio : MonoBehaviour
     public void Iniciar(string cena)
     {
         SceneManager.LoadScene(cena);
+        audioS.Play();
     }
 
     public void Sair()
     {
         Application.Quit();
+        audioS.Play();
     }
 }
