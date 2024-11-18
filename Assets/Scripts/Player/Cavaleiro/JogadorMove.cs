@@ -139,6 +139,11 @@ public class JogadorMove : MonoBehaviour
                 inimigo.ReceberDano(dano);
                 
             }
+            inimigoGoblin inimigoG = colliderInimigo.GetComponent<inimigoGoblin>();
+            if (inimigoG != null)
+            {
+                inimigoG.ReceberDano(dano);
+            }
             Caixote caixote = colliderInimigo.GetComponent<Caixote>();
             if (caixote != null)
             {

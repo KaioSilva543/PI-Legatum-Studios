@@ -231,7 +231,8 @@ GameObject:
   - component: {fileID: 4901124519655350033}
   - component: {fileID: 4410659823661329455}
   - component: {fileID: 4292960946892402432}
-  - component: {fileID: 6231656230654328917}
+  - component: {fileID: 811182934861674520}
+  - component: {fileID: 4809688680123979016}
   m_Layer: 7
   m_Name: Goblin
   m_TagString: Inimigo
@@ -435,7 +436,7 @@ CapsuleCollider2D:
   m_Offset: {x: 0.13715792, y: 0.8837142}
   m_Size: {x: 1.2141066, y: 2.2249002}
   m_Direction: 0
---- !u!114 &6231656230654328917
+--- !u!114 &811182934861674520
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -444,25 +445,123 @@ MonoBehaviour:
   m_GameObject: {fileID: 6183623793266439106}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 169a69fe6c330344c85f0a4ebbc379a2, type: 3}
+  m_Script: {fileID: 11500000, guid: f1882d8bcea45af45b3b49fafbfb78d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   jogador: {fileID: 0}
   moedaPrefab: {fileID: 536883524709077776, guid: 273cad41f861c9b40afd8ba7e9646a56, type: 3}
   moedaPPrefab: {fileID: 996011743191247200, guid: 630d88d81cb4e424e81d7410f0730f29, type: 3}
   PocaoPrefab: {fileID: 5828669692545708671, guid: d10d7318cd8dbc14bb5aa394730e9d46, type: 3}
+  sons: []
+  audioS: {fileID: 4809688680123979016}
   totalMoedas: 2
-  velocidade: 3
+  velocidade: 1.6
   distanciaMin: 1.21
-  vida: 10
-  distanciaMaxAtaque: 1.5
-  danoAtaque: 1
-  intervaloAtaques: 1.7
-  raioAtaque: 8.5
+  vida: 4
+  distanciaMaxAtaque: 2
+  danoAtaque: 2
+  intervaloAtaques: 1
+  raioAtaque: 7.25
   layerJogador:
     serializedVersion: 2
     m_Bits: 64
   inimigoVida: {fileID: 0}
+--- !u!82 &4809688680123979016
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6183623793266439106}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &6590761152353470141
 GameObject:
   m_ObjectHideFlags: 0

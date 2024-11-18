@@ -4,157 +4,187 @@ using UnityEngine;
 
 public class inimigoGoblin : MonoBehaviour
 {
-    public Transform alvo;
+    [SerializeField] private Transform jogador;
+    [SerializeField] GameObject moedaPrefab;
+    [SerializeField] GameObject moedaPPrefab;
+    [SerializeField] GameObject PocaoPrefab;
+    [SerializeField] AudioClip[] sons;
+    [SerializeField] AudioSource audioS;
+    [SerializeField] private int totalMoedas;
+    [SerializeField] private float velocidade;
+    [SerializeField] private float distanciaMin;
+    [SerializeField] int vida;
 
-    [Header("Stats")]
-    public float velocidade;
-    public float velocidadeOg;
-    public int vidaAtual, vidaMax;
+    [SerializeField] private float distanciaMaxAtaque;
+    [SerializeField] private int danoAtaque;
+    [SerializeField] private float intervaloAtaques;
+    private float tempoEsperaAaques;
 
-    private Rigidbody2D rig;
-    private GoblinAnim anim;
+    [SerializeField] private float raioAtaque;
+    [SerializeField] private LayerMask layerJogador;
 
-    [Header("Attack Settings")]
-    public float tempoEntreAtaques = 1.5f;
-    private bool podeAtacar = true;
+    private Animator animator;
+    [SerializeField] private InimigoVida inimigoVida;
+    private Rigidbody2D rb;
 
-    #region AttRange
-    [Header("OverlapCircle")]
-    public bool inRange;
-    public LayerMask maskPlayer;
-    public float raio;
-    public float raioAtaque;
-
-    [Header("GIZMOS")]
-    public Color defaultColor = Color.green;
-    public Color rangeColor = Color.red;
-    public Color attackRangeColor = Color.yellow;
-    #endregion
-
-    void Start()
+    private void Start()
     {
-        anim = GetComponent<GoblinAnim>();
-        rig = GetComponent<Rigidbody2D>();
-        vidaAtual = vidaMax;
-        velocidadeOg = velocidade;
+        inimigoVida = GetComponentInChildren<InimigoVida>();
+        rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+
+        inimigoVida.VidaMax = vida;
+        inimigoVida.VidaAtual = vida;
+
+        tempoEsperaAaques = intervaloAtaques;
     }
 
-    void FixedUpdate()
+    private void Update()
     {
-        ProcurarJogador();
-        anim.Movimento();
-
-        if (alvo != null)
+        Procurar();
+        if (jogador != null)
         {
-            Movimento();
+            Perseguir();
+            VerificarAreaAtaque();
+        }
+        else
+        {
+            rb.velocity = Vector2.zero;
+            animator.SetInteger("Cond", 0);
+        }
+    }
 
-
-            if (inRange && podeAtacar)
+    public void ReceberDano(int dano)
+    {
+        vida -= dano;
+        animator.SetTrigger("Dano");
+        inimigoVida.VidaAtual = vida;
+        if (vida <= 0)
+        {
+            print("Morreu");
+            //audioS.clip = sons[0];
+            //audioS.Play();
+            inimigoVida.Esconder();
+            rb.velocity = Vector2.zero;
+            enabled = false;
+            animator.SetBool("Morto", true);
+            Instantiate(PocaoPrefab, transform.position + new Vector3(Random.Range(-1.5f, 1.2f), Random.Range(-1.5f, 1.2f), 0f), transform.rotation);
+            for (int i = 0; i < totalMoedas; i++)
             {
-                Collider2D playerNoAtaque = Physics2D.OverlapCircle(transform.position, raioAtaque, maskPlayer);
-                if (playerNoAtaque != null)
-                {
+                Instantiate(moedaPrefab, transform.position + new Vector3(Random.Range(-1.5f, 1.2f), Random.Range(-1.5f, 1.2f), 0f), transform.rotation);
+                Instantiate(moedaPPrefab, transform.position + new Vector3(Random.Range(-1.5f, 1.2f), Random.Range(-1.5f, 1.2f), 0f), transform.rotation);
+            }
 
-                    Atacar();
-                }
+            foreach (var collider in GetComponents<Collider2D>())
+            {
+                collider.enabled = false;
+            }
+
+        }
+
+    }
+
+    private void VerificarAreaAtaque()
+    {
+        JogadorMove Jogador = jogador.GetComponent<JogadorMove>();
+
+        if (Jogador.Morte)
+        {
+            return;
+        }
+        float distancia = Vector3.Distance(transform.position, jogador.transform.position);
+        if (distancia <= distanciaMaxAtaque)
+        {
+            tempoEsperaAaques -= Time.deltaTime;
+            if (tempoEsperaAaques <= 0)
+            {
+                tempoEsperaAaques = intervaloAtaques;
+                Atacar();
             }
         }
     }
 
-    #region VidaInimigo
-    public void TomarDano(int dano)
+    private void Atacar()
     {
-        anim.Hit();
-        Debug.Log($"Inimigo tomou {dano} de dano");
-        vidaAtual -= dano;
-        Stun();
-        if (vidaAtual <= 0)
+        animator.SetTrigger("Atacou");
+        Invoke("SomAtaque", 0.5f);
+    }
+    //void SomAtaque()
+    //{
+    //    audioS.clip = sons[1];
+    //    audioS.Play();
+    //}
+    public void AplicarDano()
+    {
+        JogadorMove Jogador = jogador.GetComponent<JogadorMove>();
+        Jogador.ReceberDano(danoAtaque);
+    }
+
+    private void Perseguir()
+    {
+        Vector2 Jogador = jogador.position;
+        Vector2 Inim = transform.position;
+        float Distancia = Vector2.Distance(Jogador, Inim);
+
+        if (Distancia >= distanciaMin)
         {
-            Morte();
-        }
-    }
+            Vector2 Direcao = (Jogador - Inim).normalized;
 
-    public void Morte()
-    {
-        anim.Morte();
-        enabled = false;
-        GetComponent<CapsuleCollider2D>().enabled = false;
-        Debug.Log("Morreu");
-    }
-
-    private void Stun()
-    {
-        velocidade = 0;
-        StartCoroutine(StunReset());
-    }
-
-    IEnumerator StunReset()
-    {
-        yield return new WaitForSeconds(0.4f);
-        velocidade = velocidadeOg;
-    }
-    #endregion
-
-    #region PerseguirJogador
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = defaultColor;
-        Gizmos.DrawWireSphere(transform.position, raio);
-        if (inRange)
-        {
-            Gizmos.color = rangeColor;
-            Gizmos.DrawWireSphere(transform.position, raio);
-        }
-
-        // Gizmo raio ataque
-        Gizmos.color = attackRangeColor;
-        Gizmos.DrawWireSphere(transform.position, raioAtaque);
-    }
-
-    private void ProcurarJogador()
-    {
-        Collider2D colisor = Physics2D.OverlapCircle(transform.position, raio, maskPlayer);
-        if (colisor != null)
-        {
-            inRange = true;
-            alvo = colisor.transform;
+            rb.velocity = velocidade * Direcao;
+            if (Direcao.x > 0)
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+            }
+            else if (Direcao.x < 0)
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+            }
+            animator.SetInteger("Cond", 1);
         }
         else
         {
-            inRange = false;
-            alvo = null;
+            rb.velocity = Vector2.zero;
+            animator.SetInteger("Cond", 0);
         }
     }
-    #endregion
-
-    public void Movimento()
+    private void Procurar()
     {
-        Vector2 posAtual = transform.position;
-        Vector2 alvoPos = alvo.transform.position;
-        Vector2 direcao = Vector2.MoveTowards(posAtual, alvoPos, velocidade * Time.deltaTime);
-        rig.MovePosition(direcao);
-
-        if (direcao.x != 0)
+        Collider2D ColisorJogador = Physics2D.OverlapCircle(transform.position, raioAtaque, layerJogador);
+        if (ColisorJogador != null)
         {
-            transform.right = Vector2.right * (alvoPos - posAtual);
+            Vector2 PosAtual = this.transform.position;
+            Vector2 Jogador = ColisorJogador.transform.position;
+            Vector2 Distancia = (Jogador - PosAtual).normalized;
+
+            RaycastHit2D hit = Physics2D.Raycast(PosAtual, Distancia);
+            if (hit.transform != null)
+            {
+                if (hit.transform.CompareTag("Player"))
+                {
+                    jogador = hit.transform;
+                }
+                else
+                {
+                    jogador = null;
+                }
+            }
+            else
+            {
+                jogador = null;
+            }
+        }
+        else
+        {
+            jogador = null;
         }
     }
 
-    // Função de ataque
-    private void Atacar()
+    private void OnDrawGizmos()
     {
-        velocidade = 0;
-        anim.Ataque();
-        Debug.Log("Inimigo atacou!");
-        StartCoroutine(ResetaAtaque());
-    }
-
-    // Coroutine para controlar o tempo entre os ataques
-    IEnumerator ResetaAtaque()
-    {
-        podeAtacar = false;
-        yield return new WaitForSeconds(tempoEntreAtaques);
-        podeAtacar = true;
-        velocidade = velocidadeOg;
+        Gizmos.DrawWireSphere(transform.position, raioAtaque);
+        if (jogador != null)
+        {
+            Gizmos.DrawLine(transform.position, jogador.position);
+        }
     }
 }
