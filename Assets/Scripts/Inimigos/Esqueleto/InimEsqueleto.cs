@@ -105,7 +105,12 @@ public class InimEsqueleto : MonoBehaviour
     private void Atacar()
     {
         animator.SetTrigger("Atacou");
-        
+        Invoke("SomAtaque", 0.5f);
+    }
+    void SomAtaque()
+    {
+        audioS.clip = sons[1];
+        audioS.Play();
     }
     public void AplicarDano()
     {

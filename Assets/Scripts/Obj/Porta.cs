@@ -11,6 +11,7 @@ public class Porta : MonoBehaviour
     [SerializeField] GameObject texto1;
 
     private Animator anim;
+    private AudioSource audioS;
 
     JogadorControl controles;
     PlayerItens pItens;
@@ -19,6 +20,7 @@ public class Porta : MonoBehaviour
         controles = FindObjectOfType<JogadorControl>();
         pItens = FindObjectOfType<PlayerItens>();
         anim = GetComponent<Animator>();
+        audioS = GetComponent<AudioSource>();
     }
     void Start()
     {
@@ -42,6 +44,7 @@ public class Porta : MonoBehaviour
         {
             if (controles.Interact && pItens.chave1>0)
             {
+                audioS.Play();
                 anim.SetTrigger("porta");
                 pItens.chave1 = 0;
                 pItens.chave.SetActive(false);

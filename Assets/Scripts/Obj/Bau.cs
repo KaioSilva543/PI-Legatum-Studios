@@ -1,6 +1,7 @@
     using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Serialization;
+using UnityEditor;
 using UnityEngine;
 
 public class Bau : MonoBehaviour
@@ -22,6 +23,7 @@ public class Bau : MonoBehaviour
     [SerializeField] GameObject moedaPPrefab;
     [SerializeField] GameObject esmeraldaPrefab;
     [SerializeField] GameObject PocaoPrefab;
+    private AudioSource audioS;
 
     JogadorControl controles;
 
@@ -29,7 +31,7 @@ public class Bau : MonoBehaviour
     {
         controles = FindObjectOfType<JogadorControl>();
         anim = GetComponent<Animator>();
-
+        audioS = GetComponent<AudioSource>();
         playerCavaleiro = FindObjectOfType<JogadorMove>();
     }
     private void Start()
@@ -49,7 +51,9 @@ public class Bau : MonoBehaviour
             if (controles.Interact && podeAbrir)
             {
                 podeAbrir = false;
+                audioS.Play();
                 anim.SetTrigger("BauAbrindo");
+                
                 GetComponent<BoxCollider2D>().enabled = false;
                 Instantiate(PocaoPrefab, transform.position + new Vector3(Random.Range(-1.5f, 1.2f), Random.Range(-1.5f, 1.2f), 0f), transform.rotation);
                 for (int i = 0; i < totalMoedas; i++)

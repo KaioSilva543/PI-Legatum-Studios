@@ -416,6 +416,7 @@ MonoBehaviour:
   PocaoPrefab: {fileID: 5828669692545708671, guid: d10d7318cd8dbc14bb5aa394730e9d46, type: 3}
   sons:
   - {fileID: 8300000, guid: cd27def441402bb46ba566b020516903, type: 3}
+  - {fileID: 8300000, guid: 8558c9a6b0e15fb4e9ddecea5520e912, type: 3}
   audioS: {fileID: 8424043693621786724}
   totalMoedas: 2
   velocidade: 1.6
