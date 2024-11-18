@@ -32,6 +32,7 @@ public class PlayerItens : MonoBehaviour
     {
         usarCura();
         Atacou();
+        danoSom();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -84,6 +85,15 @@ public class PlayerItens : MonoBehaviour
     {
         audioS.clip = sons[1];
         audioS.Play();
+    }
+
+    void danoSom()
+    {
+        if (Jogador.RecebeuDano)
+        {
+            audioS.clip = sons[2];
+            audioS.Play();
+        }
     }
 
     public int PocaoVida { get => pocaoVida; set => pocaoVida = value; }

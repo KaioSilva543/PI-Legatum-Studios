@@ -6,7 +6,8 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 public class JogadorMove : MonoBehaviour
 {
     [SerializeField] private int vida;
-    public int Vida { get { return vida; } set {  vida = value; } } 
+    public int Vida { get { return vida; } set {  vida = value; } }
+    public bool RecebeuDano { get => recebeuDano; set => recebeuDano = value; }
 
     [SerializeField] private float velocidade;
     [SerializeField] private float velocidadeInicial;
@@ -25,6 +26,7 @@ public class JogadorMove : MonoBehaviour
     private JogadorControl controles;
     private Rigidbody2D rigidb;
     private PlayerItens playerI;
+    private bool recebeuDano;
 
     private bool clicou;
     
@@ -68,10 +70,16 @@ public class JogadorMove : MonoBehaviour
     #region Vida
     public void ReceberDano(int dano)
     {
+        recebeuDano = true;
+        Invoke("teste", 0.18f);
         vida -= dano;
         vidaPlayer.vidaAtual = vida;
         Debug.Log("Persoangem tomou dano");
         animacoes.ReceberDano(Morte);
+    }
+    void teste()
+    {
+        recebeuDano = false;
     }
 
     public bool Morte
