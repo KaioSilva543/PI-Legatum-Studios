@@ -40,5 +40,8 @@ public class MenuControl : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
-
+    public void menuGame()
+    {
+        SceneManager.LoadScene("InicioGame");
+    }
 }

@@ -114,7 +114,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: -196882503, guid: 401dcee47cb9cd64196e337abcedc6f7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -501,6 +501,7 @@ MonoBehaviour:
   sons:
   - {fileID: 8300000, guid: 2c5e3c32fca9fdf4298a6d8d5d54524d, type: 3}
   - {fileID: 8300000, guid: 114d07c27fe18c6459de7b4770f12945, type: 3}
+  - {fileID: 8300000, guid: fa7147af19c51404b970ebf43c508f41, type: 3}
   audioS: {fileID: 1460230085521703776}
   moedasTxt: {fileID: 0}
   pocaoTxt: {fileID: 0}
