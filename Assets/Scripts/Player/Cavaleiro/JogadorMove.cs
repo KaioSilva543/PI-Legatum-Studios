@@ -21,6 +21,7 @@ public class JogadorMove : MonoBehaviour
     private Vector3 posicaoInicalAtaque;
 
     [SerializeField] private BarraVida vidaPlayer;
+    [SerializeField] private GameObject objGameOver;
     [SerializeField] private SpriteRenderer sprite;
     private JogadorAnim animacoes;
     private JogadorControl controles;
@@ -41,6 +42,8 @@ public class JogadorMove : MonoBehaviour
         vidaPlayer.vidaAtual = vida;
 
         posicaoInicalAtaque = ataqueArea.localPosition;
+
+        //objGameOver.SetActive(false);
     }
     private void Awake()
     {
@@ -57,12 +60,12 @@ public class JogadorMove : MonoBehaviour
     {
         if (Morte){
             rigidb.velocity = Vector2.zero;
+            objGameOver.SetActive(true);
             return;
         }
         vidaPlayer.vidaAtual = vida;
         Movimento();
         Atacar();
-
 
     }
     #endregion
@@ -71,17 +74,16 @@ public class JogadorMove : MonoBehaviour
     public void ReceberDano(int dano)
     {
         recebeuDano = true;
-        Invoke("teste", 0.18f);
+        Invoke("hitSom", 0.18f);
         vida -= dano;
         vidaPlayer.vidaAtual = vida;
         Debug.Log("Persoangem tomou dano");
         animacoes.ReceberDano(Morte);
     }
-    void teste()
+    void hitSom()
     {
         recebeuDano = false;
     }
-
     public bool Morte
     {
         get {
