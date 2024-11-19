@@ -109,11 +109,11 @@ public class inimigoGoblin : MonoBehaviour
         animator.SetTrigger("Atacou");
         Invoke("SomAtaque", 0.5f);
     }
-    //void SomAtaque()
-    //{
-    //    audioS.clip = sons[1];
-    //    audioS.Play();
-    //}
+    void SomAtaque()
+    {
+        audioS.clip = sons[0];
+        audioS.Play();
+    }
     public void AplicarDano()
     {
         JogadorMove Jogador = jogador.GetComponent<JogadorMove>();

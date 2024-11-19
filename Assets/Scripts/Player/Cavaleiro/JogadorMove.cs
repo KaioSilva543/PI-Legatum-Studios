@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
+using UnityEngine.UI;
 
 public class JogadorMove : MonoBehaviour
 {
@@ -30,6 +30,10 @@ public class JogadorMove : MonoBehaviour
     private bool recebeuDano;
 
     private bool clicou;
+
+    public Button restart;
+
+    bool checkPass;
     
 
     #region Inicialização
@@ -58,9 +62,12 @@ public class JogadorMove : MonoBehaviour
     #region Logica Update
     void Update()
     {
-        if (Morte){
+        if (Morte && !checkPass)
+        {
+            checkPass = true;
             rigidb.velocity = Vector2.zero;
             objGameOver.SetActive(true);
+            restart.Select();
             return;
         }
         vidaPlayer.vidaAtual = vida;

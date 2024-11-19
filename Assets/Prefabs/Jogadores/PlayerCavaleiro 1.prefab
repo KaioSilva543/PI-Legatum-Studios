@@ -377,9 +377,9 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PlayerCavaleiro, Assembly-CSharp
-        m_MethodName: InputMove
+      - m_Target: {fileID: 3654873710421590200}
+        m_TargetAssemblyTypeName: JogadorMove, Assembly-CSharp
+        m_MethodName: Setmove
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -470,7 +470,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce333169ea92e7c4398a68c7b5a9253e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vida: 4
+  vida: 6
   velocidade: 7
   velocidadeInicial: 0
   dano: 2
@@ -483,6 +483,7 @@ MonoBehaviour:
   vidaPlayer: {fileID: 0}
   objGameOver: {fileID: 0}
   sprite: {fileID: 0}
+  restart: {fileID: 0}
 --- !u!114 &288890318741853255
 MonoBehaviour:
   m_ObjectHideFlags: 0

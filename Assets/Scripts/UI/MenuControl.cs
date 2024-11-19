@@ -33,7 +33,7 @@ public class MenuControl : MonoBehaviour
 
     public void ShowGameOver()
     {
-        GameOverUI.SetActive(true);
+       // GameOverUI.SetActive(true);
     }
 
     public void RestartGame()

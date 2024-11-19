@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class TelaInicio : MonoBehaviour
 {
     [SerializeField] AudioSource audioS;
+    [SerializeField] Button botao;
     void Start()
     {
-        
+        botao.Select();
     }
 
     
